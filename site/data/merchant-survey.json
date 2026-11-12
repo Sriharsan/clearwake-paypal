@@ -1,9 +1,9 @@
 {
  "sellers": 5,
- "cases_per_month_each_low": 1,
+ "cases_per_month_each_low": 0,
  "cases_per_month_each_high": 15,
- "cases_per_month_total_low": 31,
- "cases_per_month_total_high": 39,
+ "cases_per_month_total_low": 25,
+ "cases_per_month_total_high": 32,
  "agreed_to_be_quoted": 0,
  "note": "Five sellers answered Sri's question. Names, shops and products are withheld, and none agreed to be quoted."
 }
