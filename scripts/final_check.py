@@ -85,7 +85,7 @@ def git(*args, cwd=ROOT):
 
 def rel(path):
     try:
-        return Path(path).resolve().relative_to(ROOT).as_posix()
+        return Path(path).resolve().relative_to(Path(ROOT).resolve()).as_posix()
     except ValueError:
         return str(path)
 
