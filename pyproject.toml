@@ -13,12 +13,12 @@ authors = [{ name = "Sriharsan" }]
 dependencies = []
 
 [project.urls]
-Source = "https://github.com/Sriharsan/clearwake"
+Source = "https://github.com/Sriharsan/clearwake-paypal"
 
 # The wheel bundles the two engines the guard runs on, so an install needs neither git submodules nor the vendor folders:
 #   verdock_core  from vendor/verdock-core/verdock_core   (receipts, policy, ledger, approvals)
 #   relayloom     from vendor/relayloom/relayloom         (the pinned core the rest of Clearwake extends)
-# pip install git+https://github.com/Sriharsan/clearwake fetches the submodules at their pinned commits and builds this wheel.
+# pip install git+https://github.com/Sriharsan/clearwake-paypal fetches the submodules at their pinned commits and builds this wheel.
 [tool.setuptools]
 packages = ["clearwake", "verdock_core", "relayloom"]
 include-package-data = false

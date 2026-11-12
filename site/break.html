@@ -57,11 +57,11 @@
 
   <section class="use" aria-labelledby="h-use">
     <h2 id="h-use">Use it in three lines</h2>
-    <pre class="codeblock" tabindex="0"><code>pip install git+https://github.com/Sriharsan/clearwake
+    <pre class="codeblock" tabindex="0"><code>pip install git+https://github.com/Sriharsan/clearwake-paypal
 from clearwake import guard
 tools = guard(paypal_toolkit_tools, policy="policy.yaml")</code></pre>
     <p class="plain">Clearwake adds what the toolkit leaves to you: limits, one request id per money move, a read of PayPal's record before any retry, and a signed receipt.</p>
-    <p><code>paypal_toolkit_tools</code> is the tool list your agent framework got from PayPal's toolkit. <code>guard()</code> hands back a list of the same length and order. Of the toolkit's 47 tools, 8 move money and come back wrapped. The other 39 are the same objects, untouched. A wrapped call reads PayPal's record, takes the amount from it and from the signed policy, refuses what is above the limit before any request leaves, gives the move one request id, and writes a signed receipt. It covers what <a href="https://github.com/Sriharsan/clearwake/blob/main/docs/TOOLKIT_FAILURE_CASES.md">the toolkit failure page</a> records, and Clearwake built it as an independent guard. <a href="/developers#toolkit">Setup on the Developers page</a>, or <a href="https://github.com/Sriharsan/clearwake/blob/main/docs/TOOLKIT_GUARD.md">read the guard's page</a>.</p>
+    <p><code>paypal_toolkit_tools</code> is the tool list your agent framework got from PayPal's toolkit. <code>guard()</code> hands back a list of the same length and order. Of the toolkit's 47 tools, 8 move money and come back wrapped. The other 39 are the same objects, untouched. A wrapped call reads PayPal's record, takes the amount from it and from the signed policy, refuses what is above the limit before any request leaves, gives the move one request id, and writes a signed receipt. It covers what <a href="https://github.com/Sriharsan/clearwake-paypal/blob/main/docs/TOOLKIT_FAILURE_CASES.md">the toolkit failure page</a> records, and Clearwake built it as an independent guard. <a href="/developers#toolkit">Setup on the Developers page</a>, or <a href="https://github.com/Sriharsan/clearwake-paypal/blob/main/docs/TOOLKIT_GUARD.md">read the guard's page</a>.</p>
   </section>
   <noscript><p class="note">This page needs JavaScript to show the recorded episodes and to verify receipts in your browser.</p></noscript>
 </main>
@@ -70,14 +70,14 @@ tools = guard(paypal_toolkit_tools, policy="policy.yaml")</code></pre>
   <p class="eyebrow">The record</p>
   <h2 id="end-h">Eighty attacks, one guard.</h2>
   <dl class="lead-numbers" id="end-numbers"  aria-label="Numbers from the recorded runs"  hidden></dl>
-  <p class="end-links"><a class="btn primary" href="https://github.com/Sriharsan/clearwake">Repository</a> <a class="btn" href="https://clearwake-console.onrender.com/console">Live console</a></p>
+  <p class="end-links"><a class="btn primary" href="https://github.com/Sriharsan/clearwake-paypal">Repository</a> <a class="btn" href="https://clearwake-console.onrender.com/console">Live console</a></p>
   <p class="end-run">Run it yourself: <code>python -m clearwake</code></p>
 </section>
 
 <footer class="foot">
   <div class="wrap">
     <p>Clearwake. When an agent's order goes missing, agents fix it.</p>
-    <p><a href="https://github.com/Sriharsan/clearwake">Repository</a> &nbsp; <a href="receipts/manifest.json">Receipts</a> &nbsp; <a href="https://github.com/Sriharsan/clearwake/blob/main/LICENSE">Licences</a></p>
+    <p><a href="https://github.com/Sriharsan/clearwake-paypal">Repository</a> &nbsp; <a href="receipts/manifest.json">Receipts</a> &nbsp; <a href="https://github.com/Sriharsan/clearwake-paypal/blob/main/LICENSE">Licences</a></p>
   </div>
 </footer>
 </body>

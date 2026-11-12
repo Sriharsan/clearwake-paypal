@@ -8,7 +8,7 @@
 
 > **Real PayPal sandbox run, 11 November 2026.** 10 orders bought by a buyer agent, 10 item not received disputes. **4 settled by the two agents at the INQUIRY stage, before a claim** (PayPal's record reads RESOLVED, USD 20.00 refunded, 24 to 62 minutes from filing to RESOLVED in PayPal's timestamps), **0 double refunds**, 0 evidence sent. 1 more resolved at CHARGEBACK (case 4, by the owner's voice, USD 0.77 settlement fee), 4 answered with proof and under PayPal review, 0 awaiting the merchant owner, 1 refused by the buyer agent's mandate before it was filed with PayPal (case 7, no dispute exists). 4 moved by PayPal to the CHARGEBACK stage once tracking was on the order.
 
-Repository: https://github.com/Sriharsan/clearwake (MIT). Public site: https://clearwake-mu.vercel.app (static, recorded sandbox run, receipt verifier that runs in your browser, not network isolated). Live console, hosted on Render, not network isolated: https://clearwake-console.onrender.com. Video: [VIDEO_URL]
+Repository: https://github.com/Sriharsan/clearwake-paypal (MIT). Public site: https://clearwake-mu.vercel.app (static, recorded sandbox run, receipt verifier that runs in your browser, not network isolated). Live console, hosted on Render, not network isolated: https://clearwake-console.onrender.com. Video: [VIDEO_URL]
 
 Every number, table and screen on this page carries one of these tags:
 
@@ -64,7 +64,7 @@ Totals from the run file: 5 resolved inside PayPal (4 settled at INQUIRY, case 4
 ## Run it: one command
 
 ```sh
-git clone --recurse-submodules https://github.com/Sriharsan/clearwake.git && cd clearwake && python -m clearwake --port 8810
+git clone --recurse-submodules https://github.com/Sriharsan/clearwake-paypal.git && cd clearwake-paypal && python -m clearwake --port 8810
 ```
 
 Open http://127.0.0.1:8810/console. Python 3.12 or newer, nothing to install, no keys. **Verify the batch:** `python scripts/verify_pair.py data/runs/batch-sandbox-20261111-132948.json` checks both signed logs and the same dispute ids. **Verified in your browser:** the receipt verifier on console tab 3 and on the Developers page of the site.
@@ -209,8 +209,8 @@ Sources: `data/runs/*.json`, `data/airgap/*.json`, [docs/SANDBOX_RUN.md](docs/SA
 ## How to run
 
 ```sh
-git clone --recurse-submodules https://github.com/Sriharsan/clearwake.git
-cd clearwake
+git clone --recurse-submodules https://github.com/Sriharsan/clearwake-paypal.git
+cd clearwake-paypal
 python -m clearwake --port 8810        # then open http://127.0.0.1:8810/console
 python scripts/cases.py                # cases a to o as a local run on the local provider, no network
 ```

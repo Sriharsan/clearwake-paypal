@@ -113,7 +113,7 @@ Start the local console first (`python -m clearwake --port 8810`). The snippet m
 
 * Section title: `API reference and SDKs`
 * Body line: `The console API is described in OpenAPI 3.1. Download the spec, open the API portal, or generate a client with APIMatic.`
-* Links in this order: `OpenAPI spec (YAML)` to `https://github.com/Sriharsan/clearwake/blob/main/openapi/clearwake-console.openapi.yaml`; `API portal` to `https://clearwake-api.vercel.app`; `Postman collection` to `https://github.com/Sriharsan/clearwake/blob/main/postman/clearwake-paypal.postman_collection.json`.
+* Links in this order: `OpenAPI spec (YAML)` to `https://github.com/Sriharsan/clearwake-paypal/blob/main/openapi/clearwake-console.openapi.yaml`; `API portal` to `https://clearwake-api.vercel.app`; `Postman collection` to `https://github.com/Sriharsan/clearwake-paypal/blob/main/postman/clearwake-paypal.postman_collection.json`.
 * Code block: the Python SDK snippet above, once it has run.
 * The spec and Postman links can go in now. Add the portal link and the snippet only after the portal exists and the snippet has run.
 
@@ -121,7 +121,7 @@ Start the local console first (`python -m clearwake --port 8810`). The snippet m
 
 Done through Sri's signed in Chrome, in a new tab, on 11 November 2026.
 
-* Spec on GitHub: `https://raw.githubusercontent.com/Sriharsan/clearwake/main/openapi/clearwake-console.openapi.yaml` was fetched. It has the three routes `/console/api/negotiation`, `/console/api/totals` and `/console/api/negotiate` (operationId `negotiate`), next to the 8 earlier ones. The pushed file is current.
+* Spec on GitHub: `https://raw.githubusercontent.com/Sriharsan/clearwake-paypal/main/openapi/clearwake-console.openapi.yaml` was fetched. It has the three routes `/console/api/negotiation`, `/console/api/totals` and `/console/api/negotiate` (operationId `negotiate`), next to the 8 earlier ones. The pushed file is current.
 * APIMatic: https://app.apimatic.io opened the login page (Email and Password, Continue with Google, Continue with GitHub, Enterprise SSO). The browser had no signed in APIMatic session, so the run stopped there. No password was typed and no sign in button was pressed.
 * Earlier record, superseded by the sections below. Not done at that time: spec import, validation (warnings and errors: none seen, none recorded), Python SDK, API portal. No portal URL and no SDK file name exist yet, and the SDK snippet above stays a placeholder because it has not run. Whether the free trial allows the SDK and the portal is not known, since the dashboard was not reached.
 * Context Plugin: https://context.apimatic.io/ is "API Context Marketplace", a directory of plugins for coding agents (install in a terminal, see Step A). It cannot be used from a browser, so no PayPal call was checked and the correction log above holds no correction.

@@ -41,7 +41,7 @@
       <p class="numnote">The tests and the spec check ran on the local provider. The three Postman requests ran on the real PayPal sandbox. Each figure names the file it comes from.</p>
       <p class="status" role="note"><span class="dot" aria-hidden="true"></span><span><b>Real PayPal sandbox disputes, signed and checked in your browser.</b> Every request below is a call Clearwake makes to PayPal; every receipt verifies on this site.</span></p>
       <div class="findrow"><label class="sr" for="docsearch">Search this page</label><input class="search" id="docsearch" type="search" placeholder="Search this page (press /)" autocomplete="off"><button class="kbd" type="button" id="palopen">Command palette <kbd>Ctrl K</kbd></button><p class="searchnote" id="findnote" role="status" aria-live="polite"></p></div>
-      <p class="meta">Repository: <a href="https://github.com/Sriharsan/clearwake">github.com/Sriharsan/clearwake</a></p>
+      <p class="meta">Repository: <a href="https://github.com/Sriharsan/clearwake-paypal">github.com/Sriharsan/clearwake-paypal</a></p>
     </div>
   </header>
   <nav class="rail" aria-label="Page chain, one link per section">
@@ -61,8 +61,8 @@
 <div class="secbody">
     <p>Clearwake runs on the Python standard library. You need Python 3.12 or newer and git. Docker is needed only for the network cut run. Clone with submodules, because the receipt and policy code is in <code>vendor/verdock-core</code>.</p>
     <figure class="cb"><div class="cb-head"><span class="cb-label"><span class="tag">shell</span></span></div>
-<pre tabindex="0"><code>git clone --recurse-submodules https://github.com/Sriharsan/clearwake.git
-cd clearwake
+<pre tabindex="0"><code>git clone --recurse-submodules https://github.com/Sriharsan/clearwake-paypal.git
+cd clearwake-paypal
 python -m clearwake --port 8810</code></pre></figure>
     <p>Open <code>http://127.0.0.1:8810/console</code> for the three screens (buyer agent, control room with the dispute ledger, receipt verifier). With no keys set, everything is a local run on the local provider: no PayPal call and no network call. Speak to it from a phone with <code>python -m clearwake --phone</code>.</p>
     <p class="note">Run scripts for Windows and for macOS or Linux are in the repository root.</p>
@@ -73,7 +73,7 @@ python -m clearwake --port 8810</code></pre></figure>
 <div class="secbody">
     <p>Clearwake adds what the toolkit leaves to you: limits, one request id per money move, a read of PayPal's record before any retry, and a signed receipt.</p>
     <figure class="cb"><div class="cb-head"><span class="cb-label"><span class="tag">shell, then Python</span> three lines</span></div>
-<pre tabindex="0"><code>pip install git+https://github.com/Sriharsan/clearwake
+<pre tabindex="0"><code>pip install git+https://github.com/Sriharsan/clearwake-paypal
 from clearwake import guard
 tools = guard(paypal_toolkit_tools, policy="policy.yaml")</code></pre></figure>
     <p><code>paypal_toolkit_tools</code> is the tool list your agent framework got from PayPal's toolkit. <code>guard()</code> returns a list of the same length and order. Read and write tools come back as the same objects. The 8 tools that move money come back wrapped, with the same name, description and schema. The wheel carries what it runs on, so the install needs no git submodules and no vendor folder. It needs Python 3.10 or newer and nothing else.</p>
@@ -95,7 +95,7 @@ print(tools.verify())</code></pre></figure>
         <tr><td><code>pay_order</code>, <code>send_invoice</code>, <code>send_invoice_reminder</code>, <code>record_payment_for_invoice</code>, <code>record_refund_for_invoice</code>, <code>activate_recurring_series</code></td><td>6</td><td>Held for a person unless the policy names the tool as an operation. A request id and a signed receipt either way. The guard cannot read their amount from one record, so a policy line with <code>max_amount_minor</code> for them holds the call.</td></tr>
       </tbody></table></div>
     <p>A call that is stopped returns JSON text: <code>{"clearwake_guard": {"state": ..., "detail": ..., "sent": false, "request_id": ...}}</code>. A call that went through returns PayPal's own reply unchanged. A call that lost its reply raises the original error to the agent. Approve a held move with <code>tools.approve(approval_id, by="your name")</code>; <code>tools.pending()</code> lists the open requests. <code>tools.verify()</code> checks the receipt log offline against its own public key.</p>
-    <p class="note">Tested against the real list of 47 tools recorded in <code>docs/paypal_mcp_tools.json</code>, with no network (<code>tests/test_guard_api.py</code>). The wrapped tools were not run against the live PayPal sandbox, and the toolkit as recorded sends no <code>PayPal-Request-Id</code>, so protection against a repeat comes from the ledger and from reading PayPal's record before any retry. The rest of the guard is described in <a href="https://github.com/Sriharsan/clearwake/blob/main/docs/TOOLKIT_GUARD.md">docs/TOOLKIT_GUARD.md</a>, and the <a href="/break">Break it</a> page replays the recorded attacks.</p>
+    <p class="note">Tested against the real list of 47 tools recorded in <code>docs/paypal_mcp_tools.json</code>, with no network (<code>tests/test_guard_api.py</code>). The wrapped tools were not run against the live PayPal sandbox, and the toolkit as recorded sends no <code>PayPal-Request-Id</code>, so protection against a repeat comes from the ledger and from reading PayPal's record before any retry. The rest of the guard is described in <a href="https://github.com/Sriharsan/clearwake-paypal/blob/main/docs/TOOLKIT_GUARD.md">docs/TOOLKIT_GUARD.md</a>, and the <a href="/break">Break it</a> page replays the recorded attacks.</p>
   </div>
 </section>
 <section class="sec" id="keys" data-title="Add sandbox keys">
@@ -743,8 +743,8 @@ GET  /v2/checkout/orders/7RV99265V1496281G
 <div class="secbody">
     <p>The console API is described in OpenAPI 3.1. Download the spec, open the API portal, or generate a client with APIMatic.</p>
     <ul>
-      <li><a href="https://github.com/Sriharsan/clearwake/blob/main/openapi/clearwake-console.openapi.yaml">OpenAPI spec (YAML)</a></li>
-      <li><a href="https://github.com/Sriharsan/clearwake/blob/main/postman/clearwake-paypal.postman_collection.json">Postman collection</a></li>
+      <li><a href="https://github.com/Sriharsan/clearwake-paypal/blob/main/openapi/clearwake-console.openapi.yaml">OpenAPI spec (YAML)</a></li>
+      <li><a href="https://github.com/Sriharsan/clearwake-paypal/blob/main/postman/clearwake-paypal.postman_collection.json">Postman collection</a></li>
     </ul>
   </div>
 </section>
@@ -756,7 +756,7 @@ GET  /v2/checkout/orders/7RV99265V1496281G
 <footer class="foot">
   <div class="wrap">
     <span>PayPal sandbox only. No real money moves. Every check on this page runs in your browser.</span>
-    <span><a href="https://github.com/Sriharsan/clearwake">Repository</a> &middot; <a href="/receipts/manifest.json">Receipts</a> &middot; <a href="https://github.com/Sriharsan/clearwake/blob/main/LICENSE">MIT licence</a> &middot; <a href="https://github.com/Sriharsan/clearwake/blob/main/docs/THIRD_PARTY.md">Third party licences</a></span>
+    <span><a href="https://github.com/Sriharsan/clearwake-paypal">Repository</a> &middot; <a href="/receipts/manifest.json">Receipts</a> &middot; <a href="https://github.com/Sriharsan/clearwake-paypal/blob/main/LICENSE">MIT licence</a> &middot; <a href="https://github.com/Sriharsan/clearwake-paypal/blob/main/docs/THIRD_PARTY.md">Third party licences</a></span>
   </div>
 </footer>
 <div class="pal" id="pal" hidden>

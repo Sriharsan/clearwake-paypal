@@ -1,6 +1,6 @@
 """One line drop in for PayPal's Agent Toolkit.
 
-    pip install git+https://github.com/Sriharsan/clearwake
+    pip install git+https://github.com/Sriharsan/clearwake-paypal
     from clearwake import guard
     tools = guard(paypal_toolkit_tools, policy="policy.yaml")
 

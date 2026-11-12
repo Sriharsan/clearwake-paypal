@@ -14,7 +14,7 @@ Every document in `docs/`, grouped by what a reader needs it for. Back to the [R
 
 **Planted failure, 200 episodes:** USD 2,633.25 overpaid by an agent using PayPal's Agent Toolkit directly, USD 0.00 with Clearwake.
 
-Run it with one command: `git clone --recurse-submodules https://github.com/Sriharsan/clearwake.git && cd clearwake && python -m clearwake --port 8810`, then open `/console`. Built during the hackathon: dated in [HACKATHON_UPDATES.md](HACKATHON_UPDATES.md) and [../BUILT_DURING_HACKATHON.md](../BUILT_DURING_HACKATHON.md).
+Run it with one command: `git clone --recurse-submodules https://github.com/Sriharsan/clearwake-paypal.git && cd clearwake-paypal && python -m clearwake --port 8810`, then open `/console`. Built during the hackathon: dated in [HACKATHON_UPDATES.md](HACKATHON_UPDATES.md) and [../BUILT_DURING_HACKATHON.md](../BUILT_DURING_HACKATHON.md).
 
 Tags used on every page, each item carries one: **Real PayPal sandbox run**, **Planted failure**, **Verified in your browser**, **Local run**.
 

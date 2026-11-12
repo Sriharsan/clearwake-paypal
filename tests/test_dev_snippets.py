@@ -218,7 +218,7 @@ class Snippets(unittest.TestCase):
         self.assertEqual(names_problems("import uuid\nprint(note)"), (["note"], ["uuid"]))
 
     def test_the_three_line_snippet_is_exactly_what_the_task_says(self):
-        wanted = ["pip install git+https://github.com/Sriharsan/clearwake", "from clearwake import guard", 'tools = guard(paypal_toolkit_tools, policy="policy.yaml")']
+        wanted = ["pip install git+https://github.com/Sriharsan/clearwake-paypal", "from clearwake import guard", 'tools = guard(paypal_toolkit_tools, policy="policy.yaml")']
         for label, blocks in (("developers", developers_blocks()), ("break", break_blocks())):
             self.assertTrue(any(t.splitlines()[:3] == wanted for k, t, _ in blocks if k == "mixed"), label)
 

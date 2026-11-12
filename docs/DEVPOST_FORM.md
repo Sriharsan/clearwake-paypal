@@ -66,7 +66,7 @@ Totals from the run file: 4 refunds confirmed by PayPal's record, 0 errors, 0 do
 
 ## Run it: one command
 
-`git clone --recurse-submodules https://github.com/Sriharsan/clearwake.git && cd clearwake && python -m clearwake --port 8810`, then open `/console`. Python 3.12 or newer, nothing to install, no keys. Verify the batch: `python scripts/verify_pair.py data/runs/batch-sandbox-20261111-132948.json` (both signed logs, same dispute ids). **Verified in your browser:** the receipt verifier on console tab 3 and on the Developers page of the site.
+`git clone --recurse-submodules https://github.com/Sriharsan/clearwake-paypal.git && cd clearwake-paypal && python -m clearwake --port 8810`, then open `/console`. Python 3.12 or newer, nothing to install, no keys. Verify the batch: `python scripts/verify_pair.py data/runs/batch-sandbox-20261111-132948.json` (both signed logs, same dispute ids). **Verified in your browser:** the receipt verifier on console tab 3 and on the Developers page of the site.
 
 ## Built during the hackathon
 
@@ -97,12 +97,12 @@ Models only propose. They cannot approve, send, change a limit or mark a refund 
 | Tool | Best use here | Tag | Result |
 | --- | --- | --- | --- |
 | **PayPal APIs** | Orders v2, Payments v2, Disputes v1 (send message, make offer, provide evidence) and Add Tracking, through one allowlisted sandbox adapter | **Real PayPal sandbox run** | The 10 case batch: 4 settled at INQUIRY, before a claim, 4 refunds confirmed by PayPal's record |
-| **PayPal Agent Toolkit and PayPal MCP** | `@paypal/agent-toolkit` 1.11.0 and `@paypal/mcp` 1.8.1 read from source, 47 tools listed ([docs/PAYPAL_MCP_TOOLS.md](https://github.com/Sriharsan/clearwake/blob/main/docs/PAYPAL_MCP_TOOLS.md)). The MCP guard proxy ([docs/MCP_GUARD.md](https://github.com/Sriharsan/clearwake/blob/main/docs/MCP_GUARD.md)) and the 3 line toolkit guard ([docs/TOOLKIT_GUARD.md](https://github.com/Sriharsan/clearwake/blob/main/docs/TOOLKIT_GUARD.md)) put the signed policy in front of the money tools | **Planted failure** | Baseline USD 2,633.25 overpaid against USD 0.00 over 200 episodes with the guard |
+| **PayPal Agent Toolkit and PayPal MCP** | `@paypal/agent-toolkit` 1.11.0 and `@paypal/mcp` 1.8.1 read from source, 47 tools listed ([docs/PAYPAL_MCP_TOOLS.md](https://github.com/Sriharsan/clearwake-paypal/blob/main/docs/PAYPAL_MCP_TOOLS.md)). The MCP guard proxy ([docs/MCP_GUARD.md](https://github.com/Sriharsan/clearwake-paypal/blob/main/docs/MCP_GUARD.md)) and the 3 line toolkit guard ([docs/TOOLKIT_GUARD.md](https://github.com/Sriharsan/clearwake-paypal/blob/main/docs/TOOLKIT_GUARD.md)) put the signed policy in front of the money tools | **Planted failure** | Baseline USD 2,633.25 overpaid against USD 0.00 over 200 episodes with the guard |
 | **AG Grid Community** | The dispute ledger: stage filter, deadline countdown, the model's proposal next to the policy decision, PayPal's raw record in the row detail, CSV export | **Verified in your browser** | On the console, on Render and on the site's Control Room |
 | **Render** | The live console at https://clearwake-console.onrender.com/console, live on the free plan | **Verified in your browser** | Rate limited per address, with a Reset button |
-| **APIMatic** | OpenAPI 3.1 spec of the console API. CLI validation went from 382 findings to 104 ([docs/APIMATIC.md](https://github.com/Sriharsan/clearwake/blob/main/docs/APIMATIC.md)). Python SDK `clearwake-console-api` 0.6.1, a static portal, and an SDK call against the console that returned case n VERIFIED | **Local run** | Portal: https://clearwake-api.vercel.app. Result: The Context Plugin for PayPal 0.4.1 was run as a review of every PayPal call in clearwake/paypal.py. Its Python skills confirmed the OAuth client credentials flow, the sandbox host, GET retries, writes sent once and reconciled, and the split between a request that never left and one that may have landed; they do not cover disputes, tracking or evidence, so no code change was made and three small differences were recorded. In Sri's words: [APIMATIC_EXPERIENCE] |
-| **Postman** | A collection of 29 requests: 11 local attack suite requests and 18 PayPal sandbox requests. Newman run recorded in [postman-run-2026-11-11.json](https://github.com/Sriharsan/clearwake/blob/main/docs/postman-run-2026-11-11.json) ([docs/POSTMAN.md](https://github.com/Sriharsan/clearwake/blob/main/docs/POSTMAN.md)) | **Local run** and **Real PayPal sandbox run** | Sri's result: newman run of 11 November 2026: 95 assertions, 0 failed (75 on the local attack suite, 20 on three read only PayPal sandbox requests) |
-| **Channel3** | Exactly what ran: a price reference check in the buyer's mandate step on all 10 batch cases, with the call cap at 0 ([docs/CHANNEL3.md](https://github.com/Sriharsan/clearwake/blob/main/docs/CHANNEL3.md)) | **Real PayPal sandbox run** | 10 price reference flags, 0 live calls, no Channel3 data in any result |
+| **APIMatic** | OpenAPI 3.1 spec of the console API. CLI validation went from 382 findings to 104 ([docs/APIMATIC.md](https://github.com/Sriharsan/clearwake-paypal/blob/main/docs/APIMATIC.md)). Python SDK `clearwake-console-api` 0.6.1, a static portal, and an SDK call against the console that returned case n VERIFIED | **Local run** | Portal: https://clearwake-api.vercel.app. Result: The Context Plugin for PayPal 0.4.1 was run as a review of every PayPal call in clearwake/paypal.py. Its Python skills confirmed the OAuth client credentials flow, the sandbox host, GET retries, writes sent once and reconciled, and the split between a request that never left and one that may have landed; they do not cover disputes, tracking or evidence, so no code change was made and three small differences were recorded. In Sri's words: [APIMATIC_EXPERIENCE] |
+| **Postman** | A collection of 29 requests: 11 local attack suite requests and 18 PayPal sandbox requests. Newman run recorded in [postman-run-2026-11-11.json](https://github.com/Sriharsan/clearwake-paypal/blob/main/docs/postman-run-2026-11-11.json) ([docs/POSTMAN.md](https://github.com/Sriharsan/clearwake-paypal/blob/main/docs/POSTMAN.md)) | **Local run** and **Real PayPal sandbox run** | Sri's result: newman run of 11 November 2026: 95 assertions, 0 failed (75 on the local attack suite, 20 on three read only PayPal sandbox requests) |
+| **Channel3** | Exactly what ran: a price reference check in the buyer's mandate step on all 10 batch cases, with the call cap at 0 ([docs/CHANNEL3.md](https://github.com/Sriharsan/clearwake-paypal/blob/main/docs/CHANNEL3.md)) | **Real PayPal sandbox run** | 10 price reference flags, 0 live calls, no Channel3 data in any result |
 
 ## Inspiration
 
@@ -156,7 +156,7 @@ The same loop for the other dispute reasons, each with its own signed rules. Dis
 
 **4 of 10** disputes settled by the two agents at INQUIRY, before a claim. **USD 0.00** overpaid in 200 episodes against USD 2,633.25. **0** double refunds against 61. **24 to 62 minutes** from filing to RESOLVED in PayPal's timestamps.
 
-Site https://clearwake-mu.vercel.app, Break it page https://clearwake-mu.vercel.app/break, Render console https://clearwake-console.onrender.com/console, repo https://github.com/Sriharsan/clearwake, video [VIDEO_URL]. APIMatic: Context Plugin for PayPal 0.4.1 was run as a review of every PayPal call, portal https://clearwake-api.vercel.app. Postman: newman run of 11 November 2026: 95 assertions, 0 failed (75 on the local attack suite, 20 on three read only PayPal sandbox requests).
+Site https://clearwake-mu.vercel.app, Break it page https://clearwake-mu.vercel.app/break, Render console https://clearwake-console.onrender.com/console, repo https://github.com/Sriharsan/clearwake-paypal, video [VIDEO_URL]. APIMatic: Context Plugin for PayPal 0.4.1 was run as a review of every PayPal call, portal https://clearwake-api.vercel.app. Postman: newman run of 11 November 2026: 95 assertions, 0 failed (75 on the local attack suite, 20 on three read only PayPal sandbox requests).
 ```
 
 ## Presentation, six slides
@@ -178,11 +178,11 @@ That is 21 tags with the model tag filled in. Four spare.
 
 * Live console (hosted on Render, not network isolated): `https://clearwake-console.onrender.com/console`
 * Public site, recorded sandbox run and in browser receipt verifier: https://clearwake-mu.vercel.app
-* Code: https://github.com/Sriharsan/clearwake
-* OpenAPI 3.1 spec: https://github.com/Sriharsan/clearwake/blob/main/openapi/clearwake-console.openapi.yaml
+* Code: https://github.com/Sriharsan/clearwake-paypal
+* OpenAPI 3.1 spec: https://github.com/Sriharsan/clearwake-paypal/blob/main/openapi/clearwake-console.openapi.yaml
 * API portal (APIMatic, static portal generated from the spec): `https://clearwake-api.vercel.app`
-* Python SDK `clearwake-console-api` 0.6.1 and the validation record: https://github.com/Sriharsan/clearwake/blob/main/docs/APIMATIC.md
-* Postman collection (29 requests) and the newman run record: https://github.com/Sriharsan/clearwake/blob/main/postman/clearwake-paypal.postman_collection.json
+* Python SDK `clearwake-console-api` 0.6.1 and the validation record: https://github.com/Sriharsan/clearwake-paypal/blob/main/docs/APIMATIC.md
+* Postman collection (29 requests) and the newman run record: https://github.com/Sriharsan/clearwake-paypal/blob/main/postman/clearwake-paypal.postman_collection.json
 
 ## 6. Image gallery (3:2, each under 5 MB, from real screens)
 
@@ -284,7 +284,7 @@ The weak point to accept with AG Grid: its own announcement calls the prize Best
 
 ## 15. Repository URL
 
-https://github.com/Sriharsan/clearwake (public, MIT licence shown in About)
+https://github.com/Sriharsan/clearwake-paypal (public, MIT licence shown in About)
 
 ## 16. Live URLs
 
@@ -306,8 +306,8 @@ Three ways, fastest first. Everything is PayPal sandbox with test money. No acco
 2. Public site, no install: https://clearwake-mu.vercel.app . It shows a recorded sandbox run of the network cut (case m) and verifies its receipts in your browser. Use "Change one line, then verify" to see the chain break.
 
 3. Run it yourself (Python 3.12 or newer, nothing to install; Docker only for the network isolated run):
-   git clone --recurse-submodules https://github.com/Sriharsan/clearwake.git
-   cd clearwake
+   git clone --recurse-submodules https://github.com/Sriharsan/clearwake-paypal.git
+   cd clearwake-paypal
    python -m clearwake --port 8810        # open http://127.0.0.1:8810/console
    python scripts/cases.py                # cases a to o as a local run on the local provider, prints PASS or FAIL for each, no network
    python -m unittest discover -s tests   # offline tests

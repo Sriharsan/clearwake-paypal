@@ -21,7 +21,7 @@ info:
     identifier: MIT
   contact:
     name: Sriharsan B S
-    url: https://github.com/Sriharsan/clearwake
+    url: https://github.com/Sriharsan/clearwake-paypal
 servers:
 - url: http://127.0.0.1:8810
   description: Local run, `python -m clearwake --port 8810`. Loopback only.

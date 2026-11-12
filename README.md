@@ -64,7 +64,7 @@ Totals from the run file: 5 resolved inside PayPal (4 settled at INQUIRY, case 4
 ## Run it: one command
 
 ```sh
-git clone --recurse-submodules https://github.com/Sriharsan/clearwake.git && cd clearwake && python -m clearwake --port 8810
+git clone --recurse-submodules https://github.com/Sriharsan/clearwake-paypal.git && cd clearwake-paypal && python -m clearwake --port 8810
 ```
 
 Open http://127.0.0.1:8810/console. Python 3.12 or newer, nothing to install, no keys. **Verify the batch:** `python scripts/verify_pair.py data/runs/batch-sandbox-20261111-132948.json` checks both signed logs and the same dispute ids. **Verified in your browser:** the receipt verifier on console tab 3 and on the Developers page of the site.
@@ -304,4 +304,4 @@ Where this goes: built on PayPal today are agent to agent settling inside the di
 * **0 double refunds** in the batch and in 200 episodes, against 61 without it.
 * **24 to 62 minutes** from filing to RESOLVED in PayPal's timestamps, 11 of 11 spoken rules understood.
 
-Links: [site](https://clearwake-mu.vercel.app), [Break it page](https://clearwake-mu.vercel.app/break), [Render console](https://clearwake-console.onrender.com/console), [repo](https://github.com/Sriharsan/clearwake), [video]([VIDEO_URL]). APIMatic: The APIMatic Context Plugin for PayPal 0.4.1 was installed and its Python skills were read against every PayPal call in clearwake/paypal.py. They confirmed the OAuth client credentials flow, the sandbox host, GET retries, writes sent once and reconciled, and the split between a request that never left and one that may have landed; they do not cover disputes, tracking or evidence, so no code change was made and three small differences were recorded.. Postman: newman run of 11 November 2026: 95 assertions, 0 failed (75 on the local attack suite, 20 on three read only PayPal sandbox requests).
+Links: [site](https://clearwake-mu.vercel.app), [Break it page](https://clearwake-mu.vercel.app/break), [Render console](https://clearwake-console.onrender.com/console), [repo](https://github.com/Sriharsan/clearwake-paypal), [video]([VIDEO_URL]). APIMatic: The APIMatic Context Plugin for PayPal 0.4.1 was installed and its Python skills were read against every PayPal call in clearwake/paypal.py. They confirmed the OAuth client credentials flow, the sandbox host, GET retries, writes sent once and reconciled, and the split between a request that never left and one that may have landed; they do not cover disputes, tracking or evidence, so no code change was made and three small differences were recorded.. Postman: newman run of 11 November 2026: 95 assertions, 0 failed (75 on the local attack suite, 20 on three read only PayPal sandbox requests).

@@ -21,7 +21,7 @@ It binds to `0.0.0.0` and `$PORT` through `python -m clearwake --host 0.0.0.0` a
 ## Steps for Sri (needs Sri's Render login)
 
 1. Sign in to https://dashboard.render.com (GitHub sign in is simplest).
-2. New, then Blueprint. Connect the public repository `Sriharsan/clearwake`, branch `main`. Render finds `render.yaml` and shows one web service, `clearwake-console`.
+2. New, then Blueprint. Connect the public repository `Sriharsan/clearwake-paypal`, branch `main`. Render finds `render.yaml` and shows one web service, `clearwake-console`.
 3. Render asks for no secret. Do not add PayPal keys to the service.
 4. Apply. The first build takes a few minutes. It clones the two pinned submodules with the repository and the Dockerfile fails the build if they are missing.
 5. Copy the service URL. `scripts/fill_placeholders.py` already writes `https://clearwake-console.onrender.com` for `RENDER_URL` in every file. If Render adds a suffix because the name was taken, change `RENDER_URL` in that script and in the OpenAPI `servers` entry, then run `python scripts/fill_placeholders.py --apply`.

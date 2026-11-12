@@ -239,8 +239,8 @@ def scene_09_end_card(rec):
     html = (ROOT / "video" / "endcard.html").read_text(encoding="utf-8")
     fill = {"n1": "4 of 10", "l1": "settled at INQUIRY, before a claim", "n2": "USD 0.00", "l2": "overpaid, against USD 2,633.25 for an agent on the PayPal Agent Toolkit alone",
             "n3": "0 double refunds", "l3": "against 61 for an agent on the PayPal Agent Toolkit alone",
-            "command": "git clone --recurse-submodules https://github.com/Sriharsan/clearwake.git && cd clearwake && python -m clearwake --port 8810",
-            "console": "clearwake-console.onrender.com", "github": "github.com/Sriharsan/clearwake"}
+            "command": "git clone --recurse-submodules https://github.com/Sriharsan/clearwake-paypal.git && cd clearwake-paypal && python -m clearwake --port 8810",
+            "console": "clearwake-console.onrender.com", "github": "github.com/Sriharsan/clearwake-paypal"}
     for k, v in fill.items():
         html = html.replace("{{" + k + "}}", v)
     rec.page.route("**/__video/endcard.html", lambda route: route.fulfill(status=200, content_type="text/html; charset=utf-8", body=html))
@@ -282,7 +282,7 @@ SCENES = [
           "Ten cases on the real sandbox. Four settled at inquiry, before a claim. Three answered with proof. Two are waiting for the owner. One was refused by the buyer's mandate.",
           run=scene_08_ten_cases),
     Scene("09", "end-card", "End card: numbers, one command, links", 153, 175, "Verified in your browser",
-          "4 of 10 settled. USD 0.00 against USD 2,633.25. 0 against 61 double refunds. clearwake-console.onrender.com  github.com/Sriharsan/clearwake",
+          "4 of 10 settled. USD 0.00 against USD 2,633.25. 0 against 61 double refunds. clearwake-console.onrender.com  github.com/Sriharsan/clearwake-paypal",
           "Four of ten settled before a claim. Zero dollars overpaid against twenty six hundred. Zero double refunds against sixty one. One command runs it.", run=scene_09_end_card),
 ]
 

@@ -109,7 +109,7 @@ Three numbers, one command, the links.
 
 **SAY:** "Zero dollars overpaid against twenty six hundred. Zero double refunds against sixty one. One command runs it, or open the live console. MIT, sandbox only, no real money."
 
-**CAPTION:** USD 0.00 against USD 2,633.25. 0 against 61 double refunds. clearwake-console.onrender.com  github.com/Sriharsan/clearwake
+**CAPTION:** USD 0.00 against USD 2,633.25. 0 against 61 double refunds. clearwake-console.onrender.com  github.com/Sriharsan/clearwake-paypal
 
 ## Notes
 

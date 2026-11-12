@@ -7,7 +7,7 @@ One line of labelling: every number on this page is from the recorded run on the
 ## One line drop in
 
 ```
-pip install git+https://github.com/Sriharsan/clearwake
+pip install git+https://github.com/Sriharsan/clearwake-paypal
 ```
 
 ```python
