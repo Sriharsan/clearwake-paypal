@@ -1,0 +1,67 @@
+{
+ "public": [
+  {
+   "value": "USD 2,633.25",
+   "label": "overpaid by an agent using PayPal's Agent Toolkit directly in 200 episodes, USD 0.00 by Clearwake (61 double refunds against 0)",
+   "source": "data/runs/baseline-20261110-172506.json",
+   "mode": "local run on the local provider"
+  },
+  {
+   "value": "200 of 200",
+   "label": "episodes ended as the owner intended with Clearwake, 40 of 200 for an agent using PayPal's Agent Toolkit directly",
+   "source": "data/runs/baseline-20261110-172506.json",
+   "mode": "local run on the local provider"
+  },
+  {
+   "value": "10 of 10",
+   "label": "claims handled with 0 errors and 0 double refunds",
+   "source": "data/runs/batch-sandbox-20261111-132948.json",
+   "mode": "real PayPal sandbox"
+  },
+  {
+   "value": "4 of 4",
+   "label": "settled at INQUIRY, before a claim: every dispute inside the owner's limit that stayed at INQUIRY, USD 20.00 refunded",
+   "source": "data/runs/batch-sandbox-20261111-132948.json",
+   "mode": "real PayPal sandbox"
+  },
+  {
+   "value": "USD 0.77",
+   "label": "settlement fee instead of the USD 15.00 dispute fee, on each of the 4 settled disputes (USD 3.08 in all)",
+   "source": "data/runs/case-records-20261112.json",
+   "mode": "real PayPal sandbox"
+  },
+  {
+   "value": "42 of 42",
+   "label": "policy decisions correct across 42 model calls to qwen3.5:4b, median 18.0 s each",
+   "source": "data/runs/ai-eval-rehearsal-20261111-050842.json",
+   "mode": "local run on the local provider"
+  }
+ ],
+ "local": [
+  {
+   "value": "4 of 10",
+   "label": "disputes settled at INQUIRY, before a claim",
+   "source": "data/runs/batch-sandbox-20261111-132948.json"
+  },
+  {
+   "value": "35.06 s",
+   "label": "per negotiated case, buyer agent and merchant agent",
+   "source": "data/runs/batch-sandbox-20261111-132948.json"
+  },
+  {
+   "value": "42 calls",
+   "label": "to qwen3.5:4b, median 18.0 s each",
+   "source": "data/runs/ai-eval-rehearsal-20261111-050842.json"
+  },
+  {
+   "value": "USD 2,633.25",
+   "label": "overpaid by an agent using PayPal's Agent Toolkit directly in 200 episodes, USD 0.00 by Clearwake (61 double refunds against 0)",
+   "source": "data/runs/baseline-20261110-172506.json"
+  },
+  {
+   "value": "200 of 200",
+   "label": "episodes ended as the owner intended with Clearwake, 40 of 200 for an agent using PayPal's Agent Toolkit directly",
+   "source": "data/runs/baseline-20261110-172506.json"
+  }
+ ]
+}

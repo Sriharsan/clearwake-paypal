@@ -1,0 +1,40 @@
+{
+ "kind": "settle-times",
+ "source": "PayPal Disputes API create_time and update_time of the four RESOLVED disputes in data/runs/batch-sandbox-20261111-132948.json, read 11 Nov 2026",
+ "mode": "real sandbox",
+ "rows": [
+  {
+   "case": 10,
+   "dispute": "PP-R-ZPH-10198796",
+   "created": "2026-11-11T07:24:56.613Z",
+   "resolved": "2026-11-11T07:49:03.596Z",
+   "minutes": 24.1
+  },
+  {
+   "case": 8,
+   "dispute": "PP-R-HZO-10198791",
+   "created": "2026-11-11T07:11:36.630Z",
+   "resolved": "2026-11-11T07:46:33.397Z",
+   "minutes": 34.9
+  },
+  {
+   "case": 6,
+   "dispute": "PP-R-SVP-10198784",
+   "created": "2026-11-11T06:47:25.379Z",
+   "resolved": "2026-11-11T07:45:43.639Z",
+   "minutes": 58.3
+  },
+  {
+   "case": 3,
+   "dispute": "PP-R-ISN-10198775",
+   "created": "2026-11-11T06:30:47.064Z",
+   "resolved": "2026-11-11T07:33:03.537Z",
+   "minutes": 62.3
+  }
+ ],
+ "fastest_minutes": 24.1,
+ "slowest_minutes": 62.3,
+ "case3_model_ms": 14647,
+ "case3_model_seconds": 14.6,
+ "case3_model_source": "model_ms of the model.call receipt for PP-R-ISN-10198775 in the signed merchant log"
+}

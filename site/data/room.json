@@ -1,0 +1,40 @@
+{
+ "public": [
+  {
+   "value": "10 of 10",
+   "label": "claims handled with 0 errors and 0 double refunds",
+   "source": "data/runs/batch-sandbox-20261111-132948.json",
+   "mode": "Real PayPal sandbox run"
+  },
+  {
+   "value": "USD 20.00",
+   "label": "refunded in 4 refunds, each confirmed by PayPal's record, across 4 of 10 disputes settled at INQUIRY",
+   "source": "data/runs/batch-sandbox-20261111-132948.json",
+   "mode": "Real PayPal sandbox run"
+  },
+  {
+   "value": "24 to 62 min",
+   "label": "from filing to RESOLVED in PayPal's own timestamps, 4 settled disputes",
+   "source": "data/runs/settle-times-20261111.json",
+   "mode": "Real PayPal sandbox run"
+  },
+  {
+   "value": "4 of 10",
+   "label": "moved by PayPal to the CHARGEBACK stage, cases 1, 2, 4 and 5",
+   "source": "data/runs/batch-sandbox-20261111-132948.json",
+   "mode": "Real PayPal sandbox run"
+  },
+  {
+   "value": "5 of 10",
+   "label": "claims resolved inside PayPal: 4 at INQUIRY with no dispute fee (USD 0.77 settlement fee each), case 4 at CHARGEBACK with the USD 0.77 settlement fee",
+   "source": "data/runs/voice-decisions-20261112.json and data/runs/batch-sandbox-20261111-132948.json",
+   "mode": "Real PayPal sandbox run"
+  },
+  {
+   "value": "USD 25.00",
+   "label": "refunded in all, each refund on PayPal's record: USD 20.00 at INQUIRY and USD 5.00 on case 4",
+   "source": "data/runs/voice-decisions-20261112.json and data/runs/batch-sandbox-20261111-132948.json",
+   "mode": "Real PayPal sandbox run"
+  }
+ ]
+}

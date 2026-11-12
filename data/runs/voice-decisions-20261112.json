@@ -1,0 +1,105 @@
+{
+ "kind": "voice decisions",
+ "mode": "Real PayPal sandbox run",
+ "recorded": "2026-11-12T04:53:54Z",
+ "source_batch": "data/runs/batch-sandbox-20261111-132948.json",
+ "sandbox_only": true,
+ "channel": "voice",
+ "stt": "Sarvam Saaras v4",
+ "owner_voice": "Sarvam Bulbul kabir",
+ "reply_voice": "Sarvam Bulbul advait",
+ "cases": [
+  {
+   "case": 4,
+   "dispute": "PP-R-FEV-10198802",
+   "command": "Approve case 4",
+   "what_ran": "accept_claim REFUND, no offer (PayPal lists no make_offer at CHARGEBACK)",
+   "accept_claim_writes": 1,
+   "accept_claim_request_id": "dc46b428-9179-420c-af5a-ce541d6e5ada",
+   "approval_id": "b18e6676-e537-4b15-9072-cce00125c25d",
+   "approved_by": "owner",
+   "approved_via": "voice",
+   "source": {
+    "channel": "voice",
+    "stt": "sarvam saaras:v4",
+    "owner_voice": "kabir",
+    "reply_voice": "advait",
+    "provider": "sarvam"
+   },
+   "policy_hash": "1d1693879dcf94e54546c4503133ca17e83e0cba558789436b95a29875a69842",
+   "paypal_still_under_review_after_reads": 9,
+   "paypal": {
+    "status": "RESOLVED",
+    "dispute_state": "RESOLVED",
+    "stage": "CHARGEBACK",
+    "outcome_code": "RESOLVED_BUYER_FAVOUR",
+    "outcome_reason": "SELLER_ISSUED_REFUND",
+    "amount_refunded": "5.00",
+    "refund_id": "9J379948UG997645D",
+    "refund_amount": "5.00",
+    "fees": [
+     {
+      "reason": "DISPUTE_SETTLEMENT_FEE",
+      "type": "DEBIT",
+      "amount": "0.77",
+      "party": "SELLER"
+     }
+    ]
+   },
+   "receipt_lines": 27
+  },
+  {
+   "case": 9,
+   "dispute": "PP-R-ZZO-10198792",
+   "command": "Don't pay case 9, send the proof",
+   "what_ran": "Add Tracking, then provide-evidence PROOF_OF_FULFILLMENT; no refund, offer or accept_claim",
+   "provide_evidence_writes": 1,
+   "provide_evidence_request_id": "ab84662a-d12a-4d71-b3bf-b636da799f08",
+   "tracking": {
+    "number": "SYNTH1Z94554W09",
+    "carrier": "UPS",
+    "label": "sandbox test tracking value, not a real parcel",
+    "paypal_tracker_status": "SHIPPED"
+   },
+   "source": {
+    "channel": "voice",
+    "stt": "sarvam saaras:v4",
+    "owner_voice": "kabir",
+    "reply_voice": "advait",
+    "provider": "sarvam"
+   },
+   "policy_hash": "1d1693879dcf94e54546c4503133ca17e83e0cba558789436b95a29875a69842",
+   "read_right_after_sending": {
+    "status": "UNDER_REVIEW",
+    "stage": "INQUIRY",
+    "evidence_received": true,
+    "money_moved": false
+   },
+   "paypal": {
+    "status": "WAITING_FOR_BUYER_RESPONSE",
+    "dispute_state": "REQUIRED_OTHER_PARTY_ACTION",
+    "stage": "INQUIRY",
+    "seller_proof_on_record": 1,
+    "amount_refunded": null
+   },
+   "receipt_lines": 10
+  }
+ ],
+ "case_7": {
+  "case": 7,
+  "outcome": "refused by the buyer's mandate before any dispute",
+  "dispute": null,
+  "why": "The claim of 20.00 is more than the 9.00 the order cost. No dispute was opened. This stays a refusal."
+ },
+ "receipts": {
+  "file": "data/voice-decisions/sandbox/merchant-receipts.ndjson",
+  "lines": 37,
+  "sha256": "848e5577d2d25249f5638967901d5a333dc73a10996b26539bb46a59642d267b"
+ },
+ "sarvam_spend": {
+  "tts_chars": 2212,
+  "stt_seconds": 57.09,
+  "calls": 27
+ },
+ "note": "The first spoken reply for case 4 read 'I did not run that' while PayPal still showed UNDER_REVIEW after 9 reads over 56 seconds. The refund had been sent once and was not sent again. The wording was corrected."
+}

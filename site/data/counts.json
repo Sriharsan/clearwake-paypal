@@ -1,0 +1,11 @@
+{
+ "source": "data/runs/batch-sandbox-20261111-132948.json",
+ "cases": 10,
+ "settled": 4,
+ "answered_with_proof": 4,
+ "waiting_for_owner": 0,
+ "refused": 1,
+ "resolved_at_chargeback": 1,
+ "resolved": 5,
+ "voice_source": "data/runs/voice-decisions-20261112.json"
+}

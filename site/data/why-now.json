@@ -1,0 +1,30 @@
+[
+  {
+    "claim": "PayPal's Agent Ready page names item not received claims as a dispute type its built-in Seller Protection covers for agentic-initiated transactions.",
+    "quote": "Built-in Seller Protection for eligible agentic-initiated transactions helps guard against unauthorized transactions and item-not-received claims.",
+    "source_name": "PayPal, Agent-Ready Payments for AI Agents",
+    "source_url": "https://www.paypal.ai/us/agent-ready",
+    "date": "Read 2026-11-12 (page shows no publication date)"
+  },
+  {
+    "claim": "PayPal's Agentic Commerce Pulse Report, a study of 498 US merchants (survey run Feb 23 to Mar 3, 2026), finds nearly two thirds of merchants call a standardized liability framework, modeled on card-not-present chargeback rules, urgently needed.",
+    "quote": "Nearly two-thirds of all merchants surveyed say a standardized liability framework",
+    "source_name": "PayPal, What merchants really think about agentic commerce",
+    "source_url": "https://www.paypal.com/us/brc/article/agentic-commerce-pulse-report-findings",
+    "date": "2026-04-27"
+  },
+  {
+    "claim": "Worldpay states that no liability shift exists yet for agentic payments.",
+    "quote": "No liability shift exists yet.",
+    "source_name": "Worldpay, Agentic commerce liability is still being written",
+    "source_url": "https://worldpay.com/insights/articles/agentic-commerce-liability-is-still-being-written",
+    "date": "Read 2026-11-12 (page shows no publication date; July 2026 not confirmed)"
+  },
+  {
+    "claim": "PayPal's US dispute fee is USD 15.00 standard and USD 30.00 high volume, and the Standard Dispute Fee is waived for inquiries not escalated to a claim or resolved between buyer and seller.",
+    "quote": "The Standard Dispute Fee will be waived for Inquiries in the PayPal Resolution Center that aren't escalated to a claim",
+    "source_name": "PayPal merchant fees (US) and PayPal help article on the Dispute Fee",
+    "source_url": "https://history.paypal.com/us/webapps/mpp/merchant-fees",
+    "date": "Fee table page shows last updated 2026-11-04; read 2026-11-12"
+  }
+]

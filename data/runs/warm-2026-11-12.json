@@ -1,0 +1,57 @@
+{
+  "checked_at": "2026-11-11T20:17:23+00:00",
+  "base": "https://clearwake-console.onrender.com",
+  "paths": {
+    "/healthz": {
+      "first_request": {
+        "status": 200,
+        "seconds": 0.404
+      },
+      "warm_request": {
+        "status": 200,
+        "seconds": 0.367
+      },
+      "first_after_warm": {
+        "status": 200,
+        "seconds": 0.288
+      },
+      "later": [
+        {
+          "status": 200,
+          "seconds": 0.312
+        },
+        {
+          "status": 200,
+          "seconds": 0.36
+        }
+      ]
+    },
+    "/console": {
+      "first_request": {
+        "status": 200,
+        "seconds": 0.306
+      },
+      "warm_request": {
+        "status": 200,
+        "seconds": 0.308
+      },
+      "first_after_warm": {
+        "status": 200,
+        "seconds": 0.355
+      },
+      "later": [
+        {
+          "status": 200,
+          "seconds": 0.409
+        },
+        {
+          "status": 200,
+          "seconds": 0.305
+        }
+      ]
+    }
+  },
+  "limit_seconds": 5.0,
+  "warm_under_limit": true,
+  "failures": []
+}

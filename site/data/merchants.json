@@ -1,0 +1,76 @@
+{
+ "counts": {
+  "source": "data/runs/batch-sandbox-20261111-132948.json",
+  "cases": 10,
+  "settled": 4,
+  "answered_with_proof": 4,
+  "waiting_for_owner": 0,
+  "refused": 1,
+  "resolved_at_chargeback": 1,
+  "resolved": 5,
+  "voice_source": "data/runs/voice-decisions-20261112.json"
+ },
+ "batch_source": "data/runs/batch-sandbox-20261111-132948.json",
+ "voice_source": "data/runs/voice-decisions-20261112.json",
+ "voice": {
+  "channel": "voice",
+  "stt": "Sarvam Saaras v4",
+  "owner_voice": "Sarvam Bulbul kabir",
+  "reply_voice": "Sarvam Bulbul advait",
+  "case4": {
+   "case": 4,
+   "dispute": "PP-R-FEV-10198802",
+   "command": "Approve case 4",
+   "writes": 1,
+   "status": "RESOLVED",
+   "stage": "CHARGEBACK",
+   "outcome": "RESOLVED_BUYER_FAVOUR",
+   "refund_id": "9J379948UG997645D",
+   "refund_amount": "5.00",
+   "fee": "0.77"
+  },
+  "case9": {
+   "case": 9,
+   "dispute": "PP-R-ZZO-10198792",
+   "command": "Don't pay case 9, send the proof",
+   "writes": 1,
+   "money_moved": false,
+   "status": "UNDER_REVIEW",
+   "stage": "INQUIRY",
+   "evidence_received": true
+  }
+ },
+ "cost": {
+  "standard_fee": "15.00",
+  "high_volume_fee": "30.00",
+  "currency": "USD",
+  "fee_below_twice_standard": "not charged on claims below twice the Standard fee (clearwake/fees.py, PayPal Help Center help350)",
+  "waiver": "The Standard Dispute Fee will be waived for Inquiries in the PayPal Resolution Center that aren't escalated to a claim",
+  "fee_page": "https://history.paypal.com/us/webapps/mpp/merchant-fees",
+  "fee_help": "https://history.paypal.com/us/cshelp/article/what-is-the-paypal-dispute-fee-and-why-was-i-charged-one-help349",
+  "rule_source": [
+   "PayPal Help Center, help350 (UK edition; the US edition was not reachable on 31 Oct 2026)",
+   "https://history.paypal.com/uk/cshelp/article/how-is-the-dispute-rate-calculated-and-how-do-i-avoid-being-charged-a-dispute-fee-help350"
+  ],
+  "settlement_fee": "0.77",
+  "settled_cases": [
+   3,
+   6,
+   8,
+   10
+  ],
+  "settled_example": {
+   "case": 3,
+   "dispute": "PP-R-ISN-10198775",
+   "claim": "5.00",
+   "paid": "9.00"
+  },
+  "escalated_example": {
+   "case": 4,
+   "dispute": "PP-R-FEV-10198802",
+   "claim": "5.00",
+   "paid": "9.00",
+   "refund": "5.00"
+  }
+ }
+}

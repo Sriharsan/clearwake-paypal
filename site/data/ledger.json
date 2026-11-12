@@ -1,0 +1,333 @@
+{
+ "source": "Real PayPal sandbox, cases c, d, e, i, m, n and o, recorded 31 Oct and 3 Nov 2026",
+ "recorded": "2026-11-03",
+ "rows": [
+  {
+   "dispute": "6SN41486G5579815G",
+   "case": "c",
+   "kind": "refund",
+   "reason": "buyer complaint",
+   "amount": "1.50",
+   "stage": "",
+   "paypal_status": "refund read back",
+   "state": "VERIFIED",
+   "due": "",
+   "proposed": "",
+   "model": "",
+   "decided": "refund inside the USD 5.00 limit",
+   "outcome": "Refund VERIFIED at PayPal",
+   "fee_avoided": "0.00",
+   "settled_before_escalation": false,
+   "dispatch": "",
+   "message": "",
+   "record": {
+    "refund_id": "6SN41486G5579815G",
+    "amount": {
+     "currency_code": "USD",
+     "value": "1.50"
+    },
+    "capture_id": "1PH921107B839311S",
+    "checked": "read back from PayPal's record by the Checker"
+   },
+   "receipts": null,
+   "mode": "real sandbox",
+   "recorded": "2026-10-31"
+  },
+  {
+   "dispute": "2NB27940EC188891M",
+   "case": "d",
+   "kind": "refund",
+   "reason": "buyer complaint",
+   "amount": "3.50",
+   "stage": "",
+   "paypal_status": "refund read back",
+   "state": "VERIFIED",
+   "due": "",
+   "proposed": "",
+   "model": "",
+   "decided": "held for approval above USD 2.00, then refund",
+   "outcome": "Approved, refund VERIFIED at PayPal",
+   "fee_avoided": "0.00",
+   "settled_before_escalation": false,
+   "dispatch": "",
+   "message": "",
+   "record": {
+    "refund_id": "2NB27940EC188891M",
+    "amount": {
+     "currency_code": "USD",
+     "value": "3.50"
+    },
+    "capture_id": "1PH921107B839311S",
+    "checked": "read back from PayPal's record by the Checker",
+    "approval": "approved by a person before the refund was sent"
+   },
+   "receipts": null,
+   "mode": "real sandbox",
+   "recorded": "2026-10-31"
+  },
+  {
+   "dispute": "refund of case e",
+   "case": "e",
+   "kind": "refund",
+   "reason": "buyer complaint",
+   "amount": "1.50",
+   "stage": "",
+   "paypal_status": "refund read back",
+   "state": "VERIFIED",
+   "due": "",
+   "proposed": "",
+   "model": "",
+   "decided": "refund, then read PayPal before any retry",
+   "outcome": "One refund at PayPal, VERIFIED by reconciliation",
+   "fee_avoided": "0.00",
+   "settled_before_escalation": false,
+   "dispatch": "",
+   "message": "",
+   "record": {
+    "refund_id": "not written to the run file",
+    "amount": {
+     "currency_code": "USD",
+     "value": "1.50"
+    },
+    "capture_id": "1PH921107B839311S",
+    "checked": "read back from PayPal's record by the Checker",
+    "fault": "the response to the refund was withheld; the second call sent nothing"
+   },
+   "receipts": null,
+   "mode": "real sandbox",
+   "recorded": "2026-10-31"
+  },
+  {
+   "dispute": "6PX35920F4587564U",
+   "case": "m1",
+   "kind": "refund",
+   "reason": "buyer complaint",
+   "amount": "1.00",
+   "stage": "",
+   "paypal_status": "refund read back",
+   "state": "VERIFIED",
+   "due": "",
+   "proposed": "refund",
+   "model": "scripted, not AI",
+   "decided": "refund inside the USD 5.00 limit",
+   "outcome": "Refund VERIFIED at PayPal before the cable was pulled",
+   "fee_avoided": "0.00",
+   "settled_before_escalation": false,
+   "dispatch": "",
+   "message": "",
+   "record": {
+    "refund_id": "6PX35920F4587564U",
+    "amount": {
+     "currency_code": "USD",
+     "value": "1.00"
+    },
+    "capture_id": "1PH921107B839311S",
+    "checked": "read back from PayPal's record by the Checker"
+   },
+   "receipts": "receipts/case-m-merchant.ndjson",
+   "mode": "real sandbox",
+   "recorded": "2026-10-31"
+  },
+  {
+   "dispute": "76C086475Y724052F",
+   "case": "m2",
+   "kind": "refund",
+   "reason": "buyer complaint",
+   "amount": "1.00",
+   "stage": "",
+   "paypal_status": "refund read back",
+   "state": "VERIFIED",
+   "due": "",
+   "proposed": "refund",
+   "model": "scripted, not AI",
+   "decided": "held while offline, sent after the network came back",
+   "outcome": "Refund VERIFIED at PayPal after the cable was put back",
+   "fee_avoided": "0.00",
+   "settled_before_escalation": false,
+   "dispatch": "",
+   "message": "",
+   "record": {
+    "refund_id": "76C086475Y724052F",
+    "amount": {
+     "currency_code": "USD",
+     "value": "1.00"
+    },
+    "capture_id": "1PH921107B839311S",
+    "checked": "read back from PayPal's record by the Checker",
+    "capture_status_read_first": "PARTIALLY_REFUNDED"
+   },
+   "receipts": "receipts/case-m-merchant.ndjson",
+   "mode": "real sandbox",
+   "recorded": "2026-10-31"
+  },
+  {
+   "dispute": "9C434129FA2384059",
+   "case": "m3",
+   "kind": "refund",
+   "reason": "buyer complaint",
+   "amount": "1.00",
+   "stage": "",
+   "paypal_status": "refund read back",
+   "state": "VERIFIED",
+   "due": "",
+   "proposed": "refund",
+   "model": "scripted, not AI",
+   "decided": "held while offline, sent after the network came back",
+   "outcome": "Refund VERIFIED at PayPal after the cable was put back",
+   "fee_avoided": "0.00",
+   "settled_before_escalation": false,
+   "dispatch": "",
+   "message": "",
+   "record": {
+    "refund_id": "9C434129FA2384059",
+    "amount": {
+     "currency_code": "USD",
+     "value": "1.00"
+    },
+    "capture_id": "1PH921107B839311S",
+    "checked": "read back from PayPal's record by the Checker",
+    "capture_status_read_first": "PARTIALLY_REFUNDED"
+   },
+   "receipts": "receipts/case-m-merchant.ndjson",
+   "mode": "real sandbox",
+   "recorded": "2026-10-31"
+  },
+  {
+   "dispute": "PP-R-SLI-10195419",
+   "case": "i",
+   "kind": "dispute",
+   "reason": "MERCHANDISE_OR_SERVICE_NOT_RECEIVED",
+   "amount": "",
+   "stage": "CHARGEBACK",
+   "paypal_status": "UNDER_REVIEW",
+   "state": "VERIFIED",
+   "due": "",
+   "proposed": "",
+   "model": "",
+   "decided": "fight_with_evidence",
+   "outcome": "Tracking note SUBMITTED_BY_SELLER on PayPal's record",
+   "result": "evidence",
+   "fee_avoided": "0.00",
+   "settled_before_escalation": false,
+   "dispatch": "",
+   "message": "",
+   "receipts": null,
+   "mode": "real sandbox",
+   "recorded": "2026-10-31",
+   "record": {
+    "dispute_id": "PP-R-SLI-10195419",
+    "status": "UNDER_REVIEW",
+    "dispute_life_cycle_stage": "CHARGEBACK",
+    "reason": "MERCHANDISE_OR_SERVICE_NOT_RECEIVED",
+    "order_id": "8M960780ES843141H",
+    "seller_actions_offered": [
+     "provide_supporting_info"
+    ],
+    "supporting_info": {
+     "source": "SUBMITTED_BY_SELLER",
+     "submitted": "2026-10-31T10:31:38Z",
+     "tracker": {
+      "number": "SYNTH1Z999AA10654321",
+      "status": "SHIPPED"
+     }
+    }
+   }
+  },
+  {
+   "dispute": "PP-R-OBG-10196144",
+   "case": "n",
+   "kind": "dispute",
+   "reason": "MERCHANDISE_OR_SERVICE_NOT_AS_DESCRIBED",
+   "amount": "2.50",
+   "stage": "INQUIRY",
+   "paypal_status": "RESOLVED",
+   "state": "VERIFIED",
+   "due": "",
+   "proposed": "settle_by_offer",
+   "model": "scripted, not AI",
+   "decided": "settle_by_offer",
+   "outcome": "RESOLVED_BUYER_FAVOUR at INQUIRY, refund 0TB11858A85953644 paid",
+   "result": "settled",
+   "refunded": true,
+   "fee_avoided": "0.00",
+   "settled_before_escalation": true,
+   "dispatch": "",
+   "message": "",
+   "receipts": "receipts/case-n-settle.ndjson",
+   "mode": "real sandbox",
+   "recorded": "2026-11-03",
+   "record": {
+    "dispute_id": "PP-R-OBG-10196144",
+    "status": "RESOLVED",
+    "dispute_life_cycle_stage": "INQUIRY",
+    "dispute_outcome": {
+     "outcome_code": "RESOLVED_BUYER_FAVOUR"
+    },
+    "offer": {
+     "offer_type": "REFUND",
+     "seller_offered_amount": {
+      "currency_code": "USD",
+      "value": "2.50"
+     }
+    },
+    "refund_id": "0TB11858A85953644",
+    "status_before_acceptance": "UNDER_REVIEW",
+    "policy_limit": {
+     "make_offer_max": "5.00",
+     "approval_above": "3.00",
+     "source": "policy/merchant.yaml"
+    }
+   }
+  },
+  {
+   "dispute": "PP-R-UKF-10195772",
+   "case": "o",
+   "kind": "dispute",
+   "reason": "MERCHANDISE_OR_SERVICE_NOT_RECEIVED",
+   "amount": "5.00",
+   "stage": "INQUIRY",
+   "paypal_status": "WAITING_FOR_BUYER_RESPONSE",
+   "state": "VERIFIED",
+   "due": "",
+   "proposed": "fight_with_evidence",
+   "model": "scripted, not AI",
+   "decided": "fight_with_evidence",
+   "outcome": "PROOF_OF_FULFILLMENT on PayPal's record, waiting for the buyer",
+   "result": "evidence",
+   "fee_avoided": "0.00",
+   "settled_before_escalation": false,
+   "dispatch": "3 of 3 counted, sealed, tracking shipped",
+   "message": "Only 2 of 3 notebooks arrived.",
+   "receipts": "receipts/case-o-dispatch.ndjson",
+   "mode": "real sandbox",
+   "recorded": "2026-11-03",
+   "record": {
+    "dispute_id": "PP-R-UKF-10195772",
+    "status": "WAITING_FOR_BUYER_RESPONSE",
+    "dispute_life_cycle_stage": "INQUIRY",
+    "reason": "MERCHANDISE_OR_SERVICE_NOT_RECEIVED",
+    "order_id": "7RV99265V1496281G",
+    "capture_id": "4AN16499K3427771T",
+    "seller_actions_offered": [
+     "provide_evidence",
+     "send_message",
+     "make_offer",
+     "escalate",
+     "accept_claim"
+    ],
+    "evidences": [
+     {
+      "evidence_type": "PROOF_OF_FULFILLMENT",
+      "source": "SUBMITTED_BY_SELLER",
+      "date": "2026-11-03T10:13Z",
+      "carrier": "UPS",
+      "tracking_status": "SHIPPED",
+      "documents": [
+       "packing-photo-893632548b14c5d5.jpg"
+      ]
+     }
+    ]
+   }
+  }
+ ]
+}
