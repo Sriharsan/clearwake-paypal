@@ -50,7 +50,7 @@
   },
   {
    "value": "42 calls",
-   "label": "to qwen3.5:4b, median 18.0 s each",
+   "label": "to qwen3.5:4b, median 18.0 s each; the policy overrode 9 wrong proposals",
    "source": "data/runs/ai-eval-rehearsal-20261111-050842.json"
   },
   {

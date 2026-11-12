@@ -7,6 +7,11 @@ __pycache__/
 !.env.example
 /data/*
 !/data/runs/
+!/data/buyer/
+/data/buyer/*
+!/data/buyer/manual-batch/
+/data/buyer/manual-batch/*
+!/data/buyer/manual-batch/merchant-batch-policy.yaml
 /data/runs/final-check-*
 /data/runs/_*
 /data/runs/aborted/

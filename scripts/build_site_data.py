@@ -191,7 +191,7 @@ def totals(ledger_rows):
         path, ev = newest("ai-eval-*.json")
         if ev and ev.get("totals"):
             model, t = next(iter(ev["totals"].items()))
-            out[key].append({"value": f"{t['calls']} calls", "label": f"to {model}, median {t['median_ms'] / 1000:.1f} s each", "source": f"data/runs/{path.name}"})
+            out[key].append({"value": f"{t['calls']} calls", "label": f"to {model}, median {t['median_ms'] / 1000:.1f} s each; the policy overrode {t['proposals_overridden_by_policy']} wrong proposals", "source": f"data/runs/{path.name}"})
         path, base = newest("baseline-*.json")
         if base and not isinstance(base.get("headline"), list) and isinstance(base.get("summary"), dict):
             # derive the two headline lines from the run's own per-condition counts

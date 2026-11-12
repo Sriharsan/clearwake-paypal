@@ -61,7 +61,7 @@ def _break_run(rec, attack):
 
 
 def scene_02_claim_and_bad_outcome(rec):
-    """Break it, the attack run on the unguarded agent: the lost response is retried and the customer is paid twice."""
+    """Break it, the unguarded agent: the lost response is retried and the customer is paid twice, then the injected message is obeyed."""
     rec.goto("/break", wait_for="#run")
     rec.page.wait_for_function("document.querySelector('#label') && !/Loading/.test(document.querySelector('#label').textContent)")
     rec.scroll_to("h2#h-pick, .picker", top=100, duration=0.1)
@@ -71,26 +71,38 @@ def scene_02_claim_and_bad_outcome(rec):
     rec.click("#run", after=0.7)
     rec.page.wait_for_selector("#result .side.unguarded")
     rec.scroll_to("#result .sides", top=110, duration=1.0)
-    rec.hover("#result .side.unguarded", dwell=2.2, dx=0.3, dy=0.25)
+    rec.hover("#result .side.unguarded", dwell=2.4, dx=0.3, dy=0.25)
+    rec.scroll_to(".picker", top=100, duration=0.8)
+    rec.click("label.attack:has(input[value=injection])", after=0.3)
+    rec.click("#run", after=0.7)
+    rec.page.wait_for_selector("#result .side.unguarded")
+    rec.scroll_to("#result .sides", top=110, duration=1.0)
+    rec.hover("#result .side.unguarded", dwell=2.4, dx=0.3, dy=0.25)
     rec.scroll_to("#h-tot", top=110, duration=1.0)
-    rec.hover("#totals", dwell=1.6)
+    rec.hover("#totals", dwell=2.2)
 
 
 # --------------------------------------------------------------------------------------------------------- 0:25 to 0:40
 def scene_03_same_action_stopped(rec):
-    """Break it, the same fault through the guard: zero paid, the over limit request held for a person."""
+    """Break it, the same faults through the guard: the lost response read back not retried, the injected message refused, zero paid."""
     rec.goto("/break", wait_for="#run")
     rec.page.wait_for_function("document.querySelector('#label') && !/Loading/.test(document.querySelector('#label').textContent)")
     rec.scroll_to(".picker", top=100, duration=0.1)
     rec.begin()
     rec.pause(0.5)
-    rec.click("label.attack:has(input[value=over_limit])", after=0.3)
+    rec.click("label.attack:has(input[value=lost_response])", after=0.3)
     rec.click("#run", after=0.7)
     rec.page.wait_for_selector("#result .side.guarded")
     rec.scroll_to("#result .sides", top=110, duration=1.0)
-    rec.hover("#result .side.guarded", dwell=2.6, dx=0.3, dy=0.25)
-    rec.scroll_to("#result .receipts", top=110, duration=1.0)
-    rec.hover("#result .receipts", dwell=1.8)
+    rec.hover("#result .side.guarded", dwell=2.4, dx=0.3, dy=0.25)
+    rec.scroll_to(".picker", top=100, duration=0.8)
+    rec.click("label.attack:has(input[value=injection])", after=0.3)
+    rec.click("#run", after=0.7)
+    rec.page.wait_for_selector("#result .side.guarded")
+    rec.scroll_to("#result .sides", top=110, duration=1.0)
+    rec.hover("#result .side.guarded", dwell=2.4, dx=0.3, dy=0.25)
+    rec.scroll_to("#h-tot", top=110, duration=1.0)
+    rec.hover("#totals", dwell=2.2)
 
 
 # --------------------------------------------------------------------------------------------------------- 0:40 to 1:00
@@ -185,16 +197,16 @@ def scene_06b_case4_read_back(rec):
 
 # --------------------------------------------------------------------------------------------------------- 1:48 to 2:03
 def scene_07_verify_it(rec):
-    """Home page: the Verify button checks every signed log in the browser. Hold on the result."""
-    rec.goto("/", wait_for="#verify-all")
-    rec.scroll_to("#verify", top=120, duration=0.1)
+    """Proof page: the receipts verify in the browser, then one value is changed and the check fails."""
+    rec.goto("/proof", wait_for="#chain-msg")
+    rec.page.wait_for_function("/^Pass/.test(document.querySelector('#chain-msg').textContent.trim())", timeout=30000)
+    rec.scroll_to("#chain-msg", top=140, duration=0.1)
     rec.pause(0.5)
     rec.begin()
-    rec.pause(1.6)
-    rec.click("#verify-all", dwell=0.35, after=0.4)
-    rec.page.wait_for_function("/^(Pass|Fail)/.test(document.querySelector('#verify-result').textContent.trim())", timeout=30000)
-    rec.hover("#verify-result", dwell=3.0, dx=0.3)
-    rec.hold_until(15)
+    rec.hover("#chain-msg", dwell=2.4, dx=0.3)
+    rec.click(".step[data-i='2'] .hit", after=0.6)
+    rec.page.wait_for_function("/changed/.test(document.querySelector('#chain-msg').textContent)", timeout=30000)
+    rec.hover("#chain-msg", dwell=3.0, dx=0.3)
 
 
 # --------------------------------------------------------------------------------------------------------- 2:03 to 2:33
