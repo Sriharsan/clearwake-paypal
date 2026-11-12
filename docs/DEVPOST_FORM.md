@@ -158,7 +158,7 @@ The same loop for the other dispute reasons, each with its own signed rules. Dis
 
 **4 of 10** disputes settled by the two agents at INQUIRY, before a claim. **USD 0.00** overpaid in 200 episodes against USD 2,633.25. **0** double refunds against 61. **24 to 62 minutes** from filing to RESOLVED in PayPal's timestamps.
 
-Site https://clearwake-mu.vercel.app, Break it page https://clearwake-mu.vercel.app/break, Render console https://clearwake-console.onrender.com/console, repo https://github.com/Sriharsan/clearwake-paypal, video [VIDEO_URL]. APIMatic: Context Plugin for PayPal 0.4.1 was run as a review of every PayPal call, portal https://clearwake-api.vercel.app. Postman: newman run of 11 November 2026: 95 assertions, 0 failed (75 on the local attack suite, 20 on three read only PayPal sandbox requests).
+Site https://clearwake-mu.vercel.app, Break it page https://clearwake-mu.vercel.app/break, Render console https://clearwake-console.onrender.com/console, repo https://github.com/Sriharsan/clearwake-paypal, video https://youtu.be/oRKy5MRPW34. APIMatic: Context Plugin for PayPal 0.4.1 was run as a review of every PayPal call, portal https://clearwake-api.vercel.app. Postman: newman run of 11 November 2026: 95 assertions, 0 failed (75 on the local attack suite, 20 on three read only PayPal sandbox requests).
 ```
 
 ## Presentation, six slides
@@ -208,7 +208,7 @@ Never include `.env`, the PayPal developer credentials page or a key.
 
 ## 7. Video link
 
-`[VIDEO_URL]` (public YouTube, under 3 minutes, no music, no logos you do not own). Script: `VIDEO_SCRIPT.md`.
+`https://youtu.be/oRKy5MRPW34` (public YouTube, under 3 minutes, no music, no logos you do not own). Script: `VIDEO_SCRIPT.md`.
 
 ## 8. Submitter type
 

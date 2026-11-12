@@ -8,7 +8,7 @@
 
 > **Real PayPal sandbox run, 11 November 2026.** 10 orders bought by a buyer agent, 10 item not received disputes. **4 settled by the two agents at the INQUIRY stage, before a claim** (PayPal's record reads RESOLVED, USD 20.00 refunded, 24 to 62 minutes from filing to RESOLVED in PayPal's timestamps), **0 double refunds**, 0 evidence sent. 1 more resolved at CHARGEBACK (case 4, by the owner's voice, USD 0.77 settlement fee), 4 answered with proof and under PayPal review, 0 awaiting the merchant owner, 1 refused by the buyer agent's mandate before it was filed with PayPal (case 7, no dispute exists). 4 moved by PayPal to the CHARGEBACK stage once tracking was on the order.
 
-Repository: https://github.com/Sriharsan/clearwake-paypal (MIT). Public site: https://clearwake-mu.vercel.app (static, recorded sandbox run, receipt verifier that runs in your browser, not network isolated). Live console, hosted on Render, not network isolated: https://clearwake-console.onrender.com. Video: [VIDEO_URL]
+Repository: https://github.com/Sriharsan/clearwake-paypal (MIT). Public site: https://clearwake-mu.vercel.app (static, recorded sandbox run, receipt verifier that runs in your browser, not network isolated). Live console, hosted on Render, not network isolated: https://clearwake-console.onrender.com. Video: https://youtu.be/oRKy5MRPW34
 
 Every number, table and screen on this page carries one of these tags:
 
