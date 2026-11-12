@@ -259,7 +259,7 @@ def resolve_files(files, root):
 
 def scan(path):
     """Placeholder names in a file, outside HTML comments, in order."""
-    text = Path(path).read_text(encoding="utf-8", newline="")
+    text = open(path, encoding="utf-8", newline="").read()
     return [m.group(2) for m in TOKEN.finditer(text) if m.group(2)]
 
 
@@ -282,7 +282,7 @@ def derive(source, overrides):
 
 
 def apply_file(path, values):
-    text = Path(path).read_text(encoding="utf-8", newline="")
+    text = open(path, encoding="utf-8", newline="").read()
     count = [0]
 
     def swap(m):
