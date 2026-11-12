@@ -1,0 +1,13 @@
+{
+  "mode": "real sandbox",
+  "model": "scripted, not AI",
+  "results": [
+    {
+      "case": "n",
+      "title": "Settled in conversation, no fee: offer inside the limit, PayPal record checked",
+      "status": "PASS",
+      "how": "real sandbox; the buyer accepts the offer as the sandbox buyer in PayPal's Resolution Center",
+      "detail": "dispute PP-R-OBG-10196144: policy settle_by_offer, model proposed None; VERIFIED. Settled, no fee: PayPal shows RESOLVED (RESOLVED_BUYER_FAVOUR) at the INQUIRY stage, never a claim."
+    }
+  ]
+}

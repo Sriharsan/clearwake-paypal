@@ -1,0 +1,13 @@
+{
+  "mode": "real sandbox",
+  "model": "qwen2.5-coder:3b via Ollama on this machine",
+  "results": [
+    {
+      "case": "m",
+      "title": "Network cut mid batch: held, offline; reconcile first; no duplicate",
+      "status": "FAIL",
+      "how": "real sandbox, network isolated container, egress gateway",
+      "detail": "before cut: refund None done; during cut: ['done', 'done'], still held on retry [], drafting continued (qwen2.5-coder:3b via Ollama on this machine, 6.3 s, proposal {'action': 'provide_evidence'}); after reconnect PayPal read first, then []; rerun of m2 sent nothing (done, no new tunnel through the gateway)"
+    }
+  ]
+}

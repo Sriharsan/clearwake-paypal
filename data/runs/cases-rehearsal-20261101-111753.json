@@ -1,0 +1,13 @@
+{
+  "mode": "rehearsal",
+  "model": "scripted, not AI",
+  "results": [
+    {
+      "case": "o",
+      "title": "Dispatch proof: buyer says 2 of 3 items arrived, evidence sent",
+      "status": "PASS",
+      "how": "rehearsal; counted by a scripted table, not SAM",
+      "detail": "strong proof (3 of 3 notebook-a5 counted, sealed, receipt d9ed7e20, UPS tracking shipped): provide_evidence, VERIFIED. Weak proof (weak: counted 2 of 3 notebook-a5): policy settle_by_offer, no evidence sent. scripted count, not SAM"
+    }
+  ]
+}

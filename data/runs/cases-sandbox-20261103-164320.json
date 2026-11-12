@@ -1,0 +1,13 @@
+{
+  "mode": "real sandbox",
+  "model": "scripted, not AI",
+  "results": [
+    {
+      "case": "n",
+      "title": "Settled in conversation, no fee: offer inside the limit, PayPal record checked",
+      "status": "SKIPPED",
+      "how": "real sandbox",
+      "detail": "No sandbox dispute at the INQUIRY stage. Open one as the sandbox buyer (item not received, paid from the PayPal balance)."
+    }
+  ]
+}

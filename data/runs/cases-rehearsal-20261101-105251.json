@@ -1,0 +1,13 @@
+{
+  "mode": "rehearsal",
+  "model": "scripted, not AI",
+  "results": [
+    {
+      "case": "m",
+      "title": "Network cut mid batch: held, offline; reconcile first; no duplicate",
+      "status": "PASS",
+      "how": "rehearsal: network switch in the gateway stand-in",
+      "detail": "before cut VERIFIED; during cut ['held, offline', 'held, offline'], drafting continued (scripted, not AI); after reconnect ['VERIFIED', 'VERIFIED']; rerun of m2: VERIFIED; 3 refunds at the provider, no duplicate"
+    }
+  ]
+}

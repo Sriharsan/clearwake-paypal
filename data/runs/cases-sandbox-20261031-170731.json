@@ -1,0 +1,13 @@
+{
+  "mode": "real sandbox",
+  "model": "qwen2.5-coder:3b via Ollama on this machine",
+  "results": [
+    {
+      "case": "m",
+      "title": "Network cut mid batch: held, offline; reconcile first; no duplicate",
+      "status": "PASS",
+      "how": "real sandbox, network isolated container, egress gateway; refund decisions scripted, drafting by qwen2.5-coder:3b via Ollama on this machine inside",
+      "detail": "before cut: refund 6PX35920F4587564U VERIFIED; during cut: ['held, offline', 'held, offline'], still held on retry ['held, offline', 'held, offline'], drafting continued (qwen2.5-coder:3b via Ollama on this machine, 13.1 s, proposal {'action': 'provide_evidence'}); after reconnect PayPal read first, then [('76C086475Y724052F', 'VERIFIED'), ('9C434129FA2384059', 'VERIFIED')]; rerun of m2 sent nothing (VERIFIED, no new tunnel through the gateway)"
+    }
+  ]
+}

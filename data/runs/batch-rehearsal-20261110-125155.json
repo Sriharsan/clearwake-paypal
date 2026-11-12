@@ -1,0 +1,561 @@
+{
+ "kind": "buyer-seller batch",
+ "mode": "rehearsal",
+ "label": "rehearsal: local fake provider and a local stand-in page, offline, nothing is PayPal",
+ "started": "2026-11-10T07:03:05.254497+00:00",
+ "finished": "2026-11-10T07:21:54.484990+00:00",
+ "merchant_agent": "qwen2.5-coder:3b via Ollama on this machine",
+ "buyer_agent": "qwen2.5-coder:3b via Ollama on this machine; the owner's dispute rule (clearwake/buyer.py decide_offer) sets what it may do",
+ "buyer_rule": {
+  "accept_min_percent": 80,
+  "accept_min_percent_not_as_described": 80,
+  "counter_min_percent": 40,
+  "max_counters": 1,
+  "no_response_hours": 72,
+  "escalate_on": [
+   "merchant_evidence",
+   "no_response",
+   "counters_exhausted",
+   "below_counter_floor",
+   "offer_exceeds_request"
+  ],
+  "escalate_to_claim": false
+ },
+ "cases": [
+  {
+   "n": 1,
+   "scenario": "Item not received, tracking shows shipped",
+   "reason": "item_not_received",
+   "ask": "9.00",
+   "steps": [
+    "merchant: fight_with_evidence -> VERIFIED",
+    "buyer: escalate (merchant_evidence)"
+   ],
+   "mandate": "Inside the mandate.",
+   "order_id": "ORDER-REH-9563aa-01",
+   "capture_id": "CAP-REH-9563aa-01",
+   "paid": "9.00",
+   "mandate_receipt": "fb287ff68626b98b",
+   "bought_how": "rehearsal order, no PayPal call",
+   "buyer_model_calls": 2,
+   "buyer_model_ms": 45247,
+   "draft": {
+    "model": "qwen2.5-coder:3b",
+    "used": "fallback to the owner's note",
+    "message": "My notebook never arrived."
+   },
+   "dispute_id": "PP-D-REH-C8BDF8B4D5",
+   "page_dispute_id": "PP-R-FIX-0001",
+   "buyer_model": [
+    {
+     "proposed": "escalate",
+     "rule": "escalate",
+     "final": "escalate",
+     "model": "qwen2.5-coder:3b"
+    }
+   ],
+   "paypal_status": "WAITING_FOR_BUYER_RESPONSE",
+   "paypal_stage": "INQUIRY",
+   "paypal_outcome": "",
+   "refund_confirmed": "0.00",
+   "settlement": "",
+   "settlement_detail": "",
+   "merchant_state": "VERIFIED",
+   "merchant_decision": "fight_with_evidence",
+   "buyer_end": "escalated_owner",
+   "counters": 0,
+   "outcome": "evidence_sent",
+   "model_calls": 1,
+   "model_ms": 43246,
+   "scripted_decisions": 0,
+   "seconds": 90.87,
+   "buyer_steps": 6
+  },
+  {
+   "n": 2,
+   "scenario": "Item not received, no tracking, full amount",
+   "reason": "item_not_received",
+   "ask": "9.00",
+   "steps": [
+    "merchant: settle_by_offer -> awaiting approval",
+    "buyer: wait (no_reply_yet)"
+   ],
+   "mandate": "Inside the mandate.",
+   "order_id": "ORDER-REH-9563aa-02",
+   "capture_id": "CAP-REH-9563aa-02",
+   "paid": "9.00",
+   "mandate_receipt": "a73ceb2371da98fe",
+   "bought_how": "rehearsal order, no PayPal call",
+   "buyer_model_calls": 2,
+   "buyer_model_ms": 46761,
+   "draft": {
+    "model": "qwen2.5-coder:3b",
+    "used": "fallback to the owner's note",
+    "message": "My notebook never arrived."
+   },
+   "dispute_id": "PP-D-REH-81F0CAF504",
+   "page_dispute_id": "PP-R-FIX-0002",
+   "buyer_model": [
+    {
+     "proposed": "escalate",
+     "rule": "wait",
+     "final": "wait",
+     "model": "qwen2.5-coder:3b"
+    }
+   ],
+   "paypal_status": "WAITING_FOR_SELLER_RESPONSE",
+   "paypal_stage": "INQUIRY",
+   "paypal_outcome": "",
+   "refund_confirmed": "0.00",
+   "settlement": "",
+   "settlement_detail": "",
+   "merchant_state": "awaiting approval",
+   "merchant_decision": "settle_by_offer",
+   "buyer_end": "waiting",
+   "counters": 0,
+   "outcome": "escalated_to_merchant_owner",
+   "model_calls": 1,
+   "model_ms": 37581,
+   "scripted_decisions": 0,
+   "seconds": 85.76,
+   "buyer_steps": 5
+  },
+  {
+   "n": 3,
+   "scenario": "Item not received, no tracking, small amount",
+   "reason": "item_not_received",
+   "ask": "3.00",
+   "steps": [
+    "merchant: settle_by_offer -> PENDING",
+    "buyer: accept (offer_meets_rule)"
+   ],
+   "mandate": "Inside the mandate.",
+   "order_id": "ORDER-REH-9563aa-03",
+   "capture_id": "CAP-REH-9563aa-03",
+   "paid": "9.00",
+   "mandate_receipt": "09204ba43f692490",
+   "bought_how": "rehearsal order, no PayPal call",
+   "buyer_model_calls": 2,
+   "buyer_model_ms": 83067,
+   "draft": {
+    "model": "qwen2.5-coder:3b",
+    "used": "fallback to the owner's note",
+    "message": "My notebook never arrived."
+   },
+   "dispute_id": "PP-D-REH-EF89C04B08",
+   "page_dispute_id": "PP-R-FIX-0003",
+   "buyer_model": [
+    {
+     "proposed": "accept",
+     "rule": "accept",
+     "final": "accept",
+     "model": "qwen2.5-coder:3b"
+    }
+   ],
+   "paypal_status": "RESOLVED",
+   "paypal_stage": "INQUIRY",
+   "paypal_outcome": "RESOLVED_WITH_PAYOUT",
+   "refund_confirmed": "3.00",
+   "settlement": "VERIFIED",
+   "settlement_detail": "Settled, no fee: PayPal shows RESOLVED (RESOLVED_WITH_PAYOUT) at the INQUIRY stage, never a claim.",
+   "merchant_state": "PENDING",
+   "merchant_decision": "settle_by_offer",
+   "buyer_end": "accepted",
+   "counters": 0,
+   "outcome": "settled_inquiry_no_fee",
+   "model_calls": 1,
+   "model_ms": 42827,
+   "scripted_decisions": 0,
+   "seconds": 129.52,
+   "buyer_steps": 6
+  },
+  {
+   "n": 4,
+   "scenario": "Item not received, no tracking, small amount",
+   "reason": "item_not_received",
+   "ask": "2.00",
+   "steps": [
+    "merchant: settle_by_offer -> PENDING",
+    "buyer: accept (offer_meets_rule)"
+   ],
+   "mandate": "Inside the mandate.",
+   "order_id": "ORDER-REH-9563aa-04",
+   "capture_id": "CAP-REH-9563aa-04",
+   "paid": "9.00",
+   "mandate_receipt": "eeef430f209e2b8d",
+   "bought_how": "rehearsal order, no PayPal call",
+   "buyer_model_calls": 2,
+   "buyer_model_ms": 79868,
+   "draft": {
+    "model": "qwen2.5-coder:3b",
+    "used": "fallback to the owner's note",
+    "message": "My notebook never arrived."
+   },
+   "dispute_id": "PP-D-REH-89D2737BB4",
+   "page_dispute_id": "PP-R-FIX-0004",
+   "buyer_model": [
+    {
+     "proposed": "accept",
+     "rule": "accept",
+     "final": "accept",
+     "model": "qwen2.5-coder:3b"
+    }
+   ],
+   "paypal_status": "RESOLVED",
+   "paypal_stage": "INQUIRY",
+   "paypal_outcome": "RESOLVED_WITH_PAYOUT",
+   "refund_confirmed": "2.00",
+   "settlement": "VERIFIED",
+   "settlement_detail": "Settled, no fee: PayPal shows RESOLVED (RESOLVED_WITH_PAYOUT) at the INQUIRY stage, never a claim.",
+   "merchant_state": "PENDING",
+   "merchant_decision": "settle_by_offer",
+   "buyer_end": "accepted",
+   "counters": 0,
+   "outcome": "settled_inquiry_no_fee",
+   "model_calls": 1,
+   "model_ms": 45240,
+   "scripted_decisions": 0,
+   "seconds": 128.51,
+   "buyer_steps": 6
+  },
+  {
+   "n": 5,
+   "scenario": "Not as described, small amount",
+   "reason": "not_as_described",
+   "ask": "3.00",
+   "steps": [
+    "merchant: settle_by_offer -> PENDING",
+    "buyer: accept (offer_meets_rule)"
+   ],
+   "mandate": "Inside the mandate.",
+   "order_id": "ORDER-REH-9563aa-05",
+   "capture_id": "CAP-REH-9563aa-05",
+   "paid": "9.00",
+   "mandate_receipt": "810d5dc6a836dd61",
+   "bought_how": "rehearsal order, no PayPal call",
+   "buyer_model_calls": 2,
+   "buyer_model_ms": 100927,
+   "draft": {
+    "model": "qwen2.5-coder:3b",
+    "used": "fallback to the owner's note",
+    "message": "The paper is not the grid I ordered."
+   },
+   "dispute_id": "PP-D-REH-51289AD86A",
+   "page_dispute_id": "PP-R-FIX-0005",
+   "buyer_model": [
+    {
+     "proposed": "accept",
+     "rule": "accept",
+     "final": "accept",
+     "model": "qwen2.5-coder:3b"
+    }
+   ],
+   "paypal_status": "RESOLVED",
+   "paypal_stage": "INQUIRY",
+   "paypal_outcome": "RESOLVED_WITH_PAYOUT",
+   "refund_confirmed": "3.00",
+   "settlement": "VERIFIED",
+   "settlement_detail": "Settled, no fee: PayPal shows RESOLVED (RESOLVED_WITH_PAYOUT) at the INQUIRY stage, never a claim.",
+   "merchant_state": "PENDING",
+   "merchant_decision": "settle_by_offer",
+   "buyer_end": "accepted",
+   "counters": 0,
+   "outcome": "settled_inquiry_no_fee",
+   "model_calls": 1,
+   "model_ms": 48010,
+   "scripted_decisions": 0,
+   "seconds": 152.45,
+   "buyer_steps": 6
+  },
+  {
+   "n": 6,
+   "scenario": "Not as described, small amount",
+   "reason": "not_as_described",
+   "ask": "1.50",
+   "steps": [
+    "merchant: settle_by_offer -> PENDING",
+    "buyer: accept (offer_meets_rule)"
+   ],
+   "mandate": "Inside the mandate.",
+   "order_id": "ORDER-REH-9563aa-06",
+   "capture_id": "CAP-REH-9563aa-06",
+   "paid": "9.00",
+   "mandate_receipt": "612676487d99280b",
+   "bought_how": "rehearsal order, no PayPal call",
+   "buyer_model_calls": 2,
+   "buyer_model_ms": 91819,
+   "draft": {
+    "model": "qwen2.5-coder:3b",
+    "used": "fallback to the owner's note",
+    "message": "The cover is scratched."
+   },
+   "dispute_id": "PP-D-REH-43D85B82FA",
+   "page_dispute_id": "PP-R-FIX-0006",
+   "buyer_model": [
+    {
+     "proposed": "accept",
+     "rule": "accept",
+     "final": "accept",
+     "model": "qwen2.5-coder:3b"
+    }
+   ],
+   "paypal_status": "RESOLVED",
+   "paypal_stage": "INQUIRY",
+   "paypal_outcome": "RESOLVED_WITH_PAYOUT",
+   "refund_confirmed": "1.50",
+   "settlement": "VERIFIED",
+   "settlement_detail": "Settled, no fee: PayPal shows RESOLVED (RESOLVED_WITH_PAYOUT) at the INQUIRY stage, never a claim.",
+   "merchant_state": "PENDING",
+   "merchant_decision": "settle_by_offer",
+   "buyer_end": "accepted",
+   "counters": 0,
+   "outcome": "settled_inquiry_no_fee",
+   "model_calls": 1,
+   "model_ms": 42783,
+   "scripted_decisions": 0,
+   "seconds": 137.17,
+   "buyer_steps": 6
+  },
+  {
+   "n": 7,
+   "scenario": "Not as described, full amount, owner approves a partial offer",
+   "reason": "not_as_described",
+   "ask": "9.00",
+   "steps": [
+    "merchant owner approved the offer (rehearsal)",
+    "merchant: settle_by_offer -> PENDING",
+    "buyer: counter (ask_for_more)",
+    "merchant: settle_by_offer -> refused",
+    "buyer: escalate (counters_exhausted)"
+   ],
+   "mandate": "Inside the mandate.",
+   "order_id": "ORDER-REH-9563aa-07",
+   "capture_id": "CAP-REH-9563aa-07",
+   "paid": "9.00",
+   "mandate_receipt": "58f5165c78a7a947",
+   "bought_how": "rehearsal order, no PayPal call",
+   "buyer_model_calls": 3,
+   "buyer_model_ms": 95739,
+   "draft": {
+    "model": "qwen2.5-coder:3b",
+    "used": "fallback to the owner's note",
+    "message": "The cover is a different colour."
+   },
+   "dispute_id": "PP-D-REH-FDD16242A5",
+   "page_dispute_id": "PP-R-FIX-0007",
+   "buyer_model": [
+    {
+     "proposed": "counter",
+     "rule": "counter",
+     "final": "counter",
+     "model": "qwen2.5-coder:3b"
+    },
+    {
+     "proposed": "escalate",
+     "rule": "escalate",
+     "final": "escalate",
+     "model": "qwen2.5-coder:3b"
+    }
+   ],
+   "paypal_status": "WAITING_FOR_BUYER_RESPONSE",
+   "paypal_stage": "INQUIRY",
+   "paypal_outcome": "",
+   "refund_confirmed": "0.00",
+   "settlement": "",
+   "settlement_detail": "",
+   "merchant_state": "refused",
+   "merchant_decision": "settle_by_offer",
+   "buyer_end": "escalated_owner",
+   "counters": 1,
+   "outcome": "escalated_to_buyer_owner",
+   "model_calls": 3,
+   "model_ms": 90998,
+   "scripted_decisions": 0,
+   "seconds": 191.51,
+   "buyer_steps": 10
+  },
+  {
+   "n": 8,
+   "scenario": "Not as described, small amount",
+   "reason": "not_as_described",
+   "ask": "2.50",
+   "steps": [
+    "merchant: settle_by_offer -> PENDING",
+    "buyer: accept (offer_meets_rule)"
+   ],
+   "mandate": "Inside the mandate.",
+   "order_id": "ORDER-REH-9563aa-08",
+   "capture_id": "CAP-REH-9563aa-08",
+   "paid": "9.00",
+   "mandate_receipt": "b24a6f595e359cbd",
+   "bought_how": "rehearsal order, no PayPal call",
+   "buyer_model_calls": 2,
+   "buyer_model_ms": 56545,
+   "draft": {
+    "model": "qwen2.5-coder:3b",
+    "used": "fallback to the owner's note",
+    "message": "The pages are a different size."
+   },
+   "dispute_id": "PP-D-REH-51F1F35E6B",
+   "page_dispute_id": "PP-R-FIX-0008",
+   "buyer_model": [
+    {
+     "proposed": "accept",
+     "rule": "accept",
+     "final": "accept",
+     "model": "qwen2.5-coder:3b"
+    }
+   ],
+   "paypal_status": "RESOLVED",
+   "paypal_stage": "INQUIRY",
+   "paypal_outcome": "RESOLVED_WITH_PAYOUT",
+   "refund_confirmed": "2.50",
+   "settlement": "VERIFIED",
+   "settlement_detail": "Settled, no fee: PayPal shows RESOLVED (RESOLVED_WITH_PAYOUT) at the INQUIRY stage, never a claim.",
+   "merchant_state": "PENDING",
+   "merchant_decision": "settle_by_offer",
+   "buyer_end": "accepted",
+   "counters": 0,
+   "outcome": "settled_inquiry_no_fee",
+   "model_calls": 1,
+   "model_ms": 30448,
+   "scripted_decisions": 0,
+   "seconds": 88.82,
+   "buyer_steps": 6
+  },
+  {
+   "n": 9,
+   "scenario": "Unauthorised, signed mandate on record, full amount",
+   "reason": "unauthorised",
+   "ask": "9.00",
+   "steps": [
+    "merchant: fight_with_evidence -> VERIFIED",
+    "buyer: escalate (merchant_evidence)"
+   ],
+   "mandate": "Inside the mandate.",
+   "order_id": "ORDER-REH-9563aa-09",
+   "capture_id": "CAP-REH-9563aa-09",
+   "paid": "9.00",
+   "mandate_receipt": "1e257cf92e9d8469",
+   "bought_how": "rehearsal order, no PayPal call",
+   "buyer_model_calls": 2,
+   "buyer_model_ms": 40343,
+   "draft": {
+    "model": "qwen2.5-coder:3b",
+    "used": "fallback to the owner's note",
+    "message": "I do not recognise this payment."
+   },
+   "dispute_id": "PP-D-REH-FB5FB15A91",
+   "page_dispute_id": "PP-R-FIX-0009",
+   "buyer_model": [
+    {
+     "proposed": "escalate",
+     "rule": "escalate",
+     "final": "escalate",
+     "model": "qwen2.5-coder:3b"
+    }
+   ],
+   "paypal_status": "WAITING_FOR_BUYER_RESPONSE",
+   "paypal_stage": "INQUIRY",
+   "paypal_outcome": "",
+   "refund_confirmed": "0.00",
+   "settlement": "",
+   "settlement_detail": "",
+   "merchant_state": "VERIFIED",
+   "merchant_decision": "fight_with_evidence",
+   "buyer_end": "escalated_owner",
+   "counters": 0,
+   "outcome": "evidence_sent",
+   "model_calls": 1,
+   "model_ms": 27971,
+   "scripted_decisions": 0,
+   "seconds": 70.11,
+   "buyer_steps": 6
+  },
+  {
+   "n": 10,
+   "scenario": "Unauthorised, signed mandate on record, small amount",
+   "reason": "unauthorised",
+   "ask": "3.00",
+   "steps": [
+    "merchant: fight_with_evidence -> VERIFIED",
+    "buyer: escalate (merchant_evidence)"
+   ],
+   "mandate": "Inside the mandate.",
+   "order_id": "ORDER-REH-9563aa-10",
+   "capture_id": "CAP-REH-9563aa-10",
+   "paid": "9.00",
+   "mandate_receipt": "5c4e0c47e1712067",
+   "bought_how": "rehearsal order, no PayPal call",
+   "buyer_model_calls": 2,
+   "buyer_model_ms": 34936,
+   "draft": {
+    "model": "qwen2.5-coder:3b",
+    "used": "fallback to the owner's note",
+    "message": "I do not recognise this payment."
+   },
+   "dispute_id": "PP-D-REH-CD2D466571",
+   "page_dispute_id": "PP-R-FIX-0010",
+   "buyer_model": [
+    {
+     "proposed": "escalate",
+     "rule": "escalate",
+     "final": "escalate",
+     "model": "qwen2.5-coder:3b"
+    }
+   ],
+   "paypal_status": "WAITING_FOR_BUYER_RESPONSE",
+   "paypal_stage": "INQUIRY",
+   "paypal_outcome": "",
+   "refund_confirmed": "0.00",
+   "settlement": "",
+   "settlement_detail": "",
+   "merchant_state": "VERIFIED",
+   "merchant_decision": "fight_with_evidence",
+   "buyer_end": "escalated_owner",
+   "counters": 0,
+   "outcome": "evidence_sent",
+   "model_calls": 1,
+   "model_ms": 17658,
+   "scripted_decisions": 0,
+   "seconds": 54.51,
+   "buyer_steps": 6
+  }
+ ],
+ "summary": {
+  "cases": 10,
+  "settled_inquiry_no_fee": 5,
+  "evidence_sent": 3,
+  "escalated_to_buyer_owner": 1,
+  "escalated_to_merchant_owner": 1,
+  "pending": 0,
+  "error": 0,
+  "refunds_confirmed_by_paypal": 5,
+  "refunds_confirmed_total": "12.00",
+  "seconds_total": 1129.23,
+  "seconds_per_case": 112.92,
+  "model_calls": 12,
+  "scripted_decisions": 0,
+  "merchant_model_ms": 426762,
+  "buyer_model_calls": 21,
+  "buyer_model_ms": 675252,
+  "buyer_scripted_decisions": 0,
+  "buyer_model_overrides": 1
+ },
+ "manual": [
+  "Nothing real was touched: every record is invented by the local fake provider and the stand-in page.",
+  "Case 7: the merchant owner's approval of the partial offer is simulated (named 'rehearsal owner' in the receipt)."
+ ],
+ "run_id": "9563aa",
+ "buyer_log": {
+  "path": "buyer-receipts.ndjson",
+  "public_key": "ffb6ec14b5b9630eb946a86bf4f349eef61d4935821adb1d4371df8df3a39b8a",
+  "verifies": true,
+  "receipts": 73
+ },
+ "merchant_log": {
+  "public_key": "e43dea3c204b36d3c9891b08f07b3f74f36d1ece634f6577cb9bdb970ab160ef",
+  "verifies": true
+ },
+ "work_dir": "C:\\Users\\bssri\\AppData\\Local\\Temp\\clearwake-batch-ydpc94cd"
+}

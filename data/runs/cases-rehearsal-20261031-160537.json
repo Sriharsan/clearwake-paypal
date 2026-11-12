@@ -1,0 +1,27 @@
+{
+  "mode": "rehearsal",
+  "model": "scripted, not AI",
+  "results": [
+    {
+      "case": "e",
+      "title": "Lost response: UNKNOWN, no blind retry, reconciled from PayPal",
+      "status": "PASS",
+      "how": "rehearsal",
+      "detail": "UNKNOWN, second attempt sent nothing, 1 refund at PayPal, reconciled to VERIFIED"
+    },
+    {
+      "case": "f",
+      "title": "Three agents split refunds on one order; the one over the capture is stopped",
+      "status": "PASS",
+      "how": "rehearsal: a USD 5 capture is needed to show the split under the USD 5 policy cap",
+      "detail": "states ['VERIFIED', 'refused', 'VERIFIED']"
+    },
+    {
+      "case": "g",
+      "title": "Prompt injection cannot move a limit; the receipt shows the refusal",
+      "status": "PASS",
+      "how": "rehearsal: refused before any PayPal call",
+      "detail": "Policy refused: above limit (limit 5.00 USD)."
+    }
+  ]
+}

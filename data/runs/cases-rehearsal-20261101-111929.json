@@ -1,0 +1,111 @@
+{
+  "mode": "rehearsal",
+  "model": "scripted, not AI",
+  "results": [
+    {
+      "case": "a",
+      "title": "Buyer agent buys inside its mandate",
+      "status": "PASS",
+      "how": "rehearsal: no PayPal checkout",
+      "detail": "scripted, not AI chose notebook-a5; signed mandate receipt 435909c4c2fd"
+    },
+    {
+      "case": "b",
+      "title": "Buyer agent refuses a purchase outside its mandate",
+      "status": "PASS",
+      "how": "rehearsal: mandate check, no payment",
+      "detail": "Refused: category allowed."
+    },
+    {
+      "case": "c",
+      "title": "Refund under the limit, verified against PayPal's record",
+      "status": "PASS",
+      "how": "rehearsal",
+      "detail": "refund SIM2937B62C38774775A: VERIFIED"
+    },
+    {
+      "case": "d",
+      "title": "Above the threshold: approval inbox, then refund verified",
+      "status": "PASS",
+      "how": "rehearsal",
+      "detail": "waited for approval 6da4f1a4, then refund SIMBB131FBD82084A54B: VERIFIED"
+    },
+    {
+      "case": "e",
+      "title": "Lost response: UNKNOWN, no blind retry, reconciled from PayPal",
+      "status": "PASS",
+      "how": "rehearsal",
+      "detail": "UNKNOWN, second attempt sent nothing, 1 refund at PayPal, reconciled to VERIFIED"
+    },
+    {
+      "case": "f",
+      "title": "Three agents split refunds on one order; the one over the capture is stopped",
+      "status": "PASS",
+      "how": "rehearsal: a USD 5 capture is needed to show the split under the USD 5 policy cap",
+      "detail": "states ['VERIFIED', 'refused', 'VERIFIED']"
+    },
+    {
+      "case": "g",
+      "title": "Prompt injection cannot move a limit; the receipt shows the refusal",
+      "status": "PASS",
+      "how": "rehearsal: refused before any PayPal call",
+      "detail": "Policy refused: above limit (limit 5.00 USD)."
+    },
+    {
+      "case": "h",
+      "title": "A tampered receipt fails offline verification",
+      "status": "PASS",
+      "how": "offline, no network",
+      "detail": "failure at line 1: signature invalid"
+    },
+    {
+      "case": "i",
+      "title": "Item not received: tracking submitted before the deadline",
+      "status": "PASS",
+      "how": "rehearsal",
+      "detail": "provide_evidence: PayPal now shows UNDER_REVIEW."
+    },
+    {
+      "case": "k",
+      "title": "Near deadline: escalated with the countdown",
+      "status": "PASS",
+      "how": "rehearsal",
+      "detail": "awaiting approval, 4 h 59 min left"
+    },
+    {
+      "case": "l",
+      "title": "Batch of ten disputes in parallel",
+      "status": "PASS",
+      "how": "rehearsal",
+      "detail": "{'evidenced': 4, 'refunded': 4, 'escalated': 2}, 1.09 s total, 0.44 s per dispute, model: scripted, not AI"
+    },
+    {
+      "case": "j",
+      "title": "Agent order disputed as unauthorised: mandate receipt attached and verified offline",
+      "status": "PASS",
+      "how": "rehearsal dispute; receipt verified offline",
+      "detail": "receipt 4fa4902926a3 attached; PayPal now shows UNDER_REVIEW."
+    },
+    {
+      "case": "n",
+      "title": "Settled in conversation, no fee: offer inside the limit, PayPal record checked",
+      "status": "PASS",
+      "how": "rehearsal; buyer acceptance simulated",
+      "detail": "policy settle_by_offer, model proposed settle_by_offer; offer 2.50 USD; Settled, no fee: PayPal shows RESOLVED (RESOLVED_WITH_PAYOUT) at the INQUIRY stage, never a claim. Gauge: 1 settled before escalation, fee avoided 0.00 USD (the Standard fee is not charged on claims below USD 30.00)."
+    },
+    {
+      "case": "o",
+      "title": "Dispatch proof: buyer says 2 of 3 items arrived, evidence sent",
+      "status": "PASS",
+      "how": "rehearsal; counted by a scripted table, not SAM",
+      "detail": "strong proof (3 of 3 notebook-a5 counted, sealed, receipt 0a362e44, UPS tracking shipped): provide_evidence, VERIFIED. Weak proof (weak: counted 2 of 3 notebook-a5): policy settle_by_offer, no evidence sent. scripted count, not SAM"
+    },
+    {
+      "case": "m",
+      "title": "Network cut mid batch: held, offline; reconcile first; no duplicate",
+      "status": "PASS",
+      "how": "rehearsal: network switch in the gateway stand-in",
+      "detail": "before cut VERIFIED; during cut ['held, offline', 'held, offline'], drafting continued (scripted, not AI); after reconnect ['VERIFIED', 'VERIFIED']; rerun of m2: VERIFIED; 3 refunds at the provider, no duplicate"
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+{
+ "kind": "buyer-seller batch",
+ "mode": "rehearsal",
+ "label": "rehearsal: local fake provider and a local stand-in page, offline, nothing is PayPal",
+ "started": "2026-11-09T16:34:55.102245+00:00",
+ "finished": "2026-11-09T16:34:57.054482+00:00",
+ "merchant_agent": "scripted, not AI",
+ "buyer_agent": "scripted rule from the owner's mandate (clearwake/buyer.py decide_offer), not AI",
+ "buyer_rule": {
+  "accept_min_percent": 80,
+  "accept_min_percent_not_as_described": 80,
+  "counter_min_percent": 40,
+  "max_counters": 1,
+  "no_response_hours": 72,
+  "escalate_on": [
+   "merchant_evidence",
+   "no_response",
+   "counters_exhausted",
+   "below_counter_floor",
+   "offer_exceeds_request"
+  ],
+  "escalate_to_claim": false
+ },
+ "cases": [
+  {
+   "n": 3,
+   "scenario": "Item not received, no tracking, small amount",
+   "reason": "item_not_received",
+   "ask": "3.00",
+   "steps": [
+    "merchant: settle_by_offer -> PENDING",
+    "buyer: accept (offer_meets_rule)"
+   ],
+   "mandate": "Inside the mandate.",
+   "order_id": "ORDER-REH-b2c72a-03",
+   "capture_id": "CAP-REH-b2c72a-03",
+   "paid": "9.00",
+   "mandate_receipt": "92523626cd59f545",
+   "bought_how": "rehearsal order, no PayPal call",
+   "dispute_id": "PP-D-REH-620471F4A9",
+   "page_dispute_id": "PP-R-FIX-0001",
+   "paypal_status": "RESOLVED",
+   "paypal_stage": "INQUIRY",
+   "paypal_outcome": "RESOLVED_WITH_PAYOUT",
+   "refund_confirmed": "3.00",
+   "settlement": "VERIFIED",
+   "settlement_detail": "Settled, no fee: PayPal shows RESOLVED (RESOLVED_WITH_PAYOUT) at the INQUIRY stage, never a claim.",
+   "merchant_state": "PENDING",
+   "merchant_decision": "settle_by_offer",
+   "buyer_end": "accepted",
+   "counters": 0,
+   "outcome": "settled_inquiry_no_fee",
+   "model_calls": 0,
+   "scripted_decisions": 1,
+   "seconds": 1.95,
+   "buyer_steps": 4
+  }
+ ],
+ "summary": {
+  "cases": 1,
+  "settled_inquiry_no_fee": 1,
+  "evidence_sent": 0,
+  "escalated_to_buyer_owner": 0,
+  "escalated_to_merchant_owner": 0,
+  "pending": 0,
+  "error": 0,
+  "refunds_confirmed_by_paypal": 1,
+  "refunds_confirmed_total": "3.00",
+  "seconds_total": 1.95,
+  "seconds_per_case": 1.95,
+  "model_calls": 0,
+  "scripted_decisions": 1
+ },
+ "manual": [
+  "Nothing real was touched: every record is invented by the local fake provider and the stand-in page.",
+  "Case 9: the merchant owner's approval of the partial offer is simulated (named 'rehearsal owner' in the receipt)."
+ ],
+ "run_id": "b2c72a",
+ "buyer_log": {
+  "path": "buyer-receipts.ndjson",
+  "public_key": "726f15ca21929315e5398ca0f649273a4861e404a689f308cee1831b13f1772b",
+  "verifies": true,
+  "receipts": 5
+ },
+ "merchant_log": {
+  "public_key": "9772313a7b6ff57a68a0c429bc3635ff9fcdd29fc236f8c3af18a864987fa143",
+  "verifies": true
+ },
+ "work_dir": "C:\\Users\\bssri\\AppData\\Local\\Temp\\clearwake-batch-odvxxquz"
+}

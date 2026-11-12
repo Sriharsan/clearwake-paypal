@@ -1,0 +1,104 @@
+{
+  "mode": "real sandbox",
+  "model": "scripted, not AI",
+  "results": [
+    {
+      "case": "a",
+      "title": "Buyer agent buys inside its mandate",
+      "status": "PASS",
+      "how": "rehearsal: pass --order after a sandbox buyer approval",
+      "detail": "scripted, not AI chose notebook-a5; signed mandate receipt 353f154385ae"
+    },
+    {
+      "case": "b",
+      "title": "Buyer agent refuses a purchase outside its mandate",
+      "status": "PASS",
+      "how": "rehearsal: mandate check, no payment",
+      "detail": "Refused: category allowed."
+    },
+    {
+      "case": "c",
+      "title": "Refund under the limit, verified against PayPal's record",
+      "status": "PASS",
+      "how": "real sandbox",
+      "detail": "refund 6SN41486G5579815G: VERIFIED"
+    },
+    {
+      "case": "d",
+      "title": "Above the threshold: approval inbox, then refund verified",
+      "status": "PASS",
+      "how": "real sandbox",
+      "detail": "waited for approval 25f17c71, then refund 2NB27940EC188891M: VERIFIED"
+    },
+    {
+      "case": "e",
+      "title": "Lost response: UNKNOWN, no blind retry, reconciled from PayPal",
+      "status": "PASS",
+      "how": "injected fault in sandbox",
+      "detail": "UNKNOWN, second attempt sent nothing, 1 refund at PayPal, reconciled to VERIFIED"
+    },
+    {
+      "case": "f",
+      "title": "Three agents split refunds on one order; the one over the capture is stopped",
+      "status": "PASS",
+      "how": "rehearsal: a USD 5 capture is needed to show the split under the USD 5 policy cap",
+      "detail": "states ['VERIFIED', 'refused', 'VERIFIED']"
+    },
+    {
+      "case": "g",
+      "title": "Prompt injection cannot move a limit; the receipt shows the refusal",
+      "status": "PASS",
+      "how": "rehearsal: refused before any PayPal call",
+      "detail": "Policy refused: above limit (limit 5.00 USD)."
+    },
+    {
+      "case": "h",
+      "title": "A tampered receipt fails offline verification",
+      "status": "PASS",
+      "how": "offline, no network",
+      "detail": "failure at line 1: signature invalid"
+    },
+    {
+      "case": "i",
+      "title": "Item not received: tracking submitted before the deadline",
+      "status": "SKIPPED",
+      "how": "real sandbox",
+      "detail": "No open 'item not received' sandbox dispute. Open one as the sandbox buyer in the Resolution Center."
+    },
+    {
+      "case": "k",
+      "title": "Near deadline: escalated with the countdown",
+      "status": "SKIPPED",
+      "how": "real sandbox",
+      "detail": "0 open sandbox dispute(s). k needs a real dispute close to its PayPal deadline; l needs ten real disputes."
+    },
+    {
+      "case": "l",
+      "title": "Batch of ten disputes in parallel",
+      "status": "SKIPPED",
+      "how": "real sandbox",
+      "detail": "0 open sandbox dispute(s). k needs a real dispute close to its PayPal deadline; l needs ten real disputes."
+    },
+    {
+      "case": "j",
+      "title": "Agent order disputed as unauthorised: mandate receipt attached and verified offline",
+      "status": "PASS",
+      "how": "rehearsal dispute; receipt verified offline",
+      "detail": "receipt 545de69535ec attached; PayPal now shows UNDER_REVIEW."
+    },
+    {
+      "case": "n",
+      "title": "Settled in conversation, no fee: offer inside the limit, PayPal record checked",
+      "status": "SKIPPED",
+      "how": "real sandbox",
+      "detail": "No sandbox dispute at the INQUIRY stage. Open one as the sandbox buyer (item not received, paid from the PayPal balance)."
+    },
+    {
+      "case": "m",
+      "title": "Network cut mid batch: held, offline; reconcile first; no duplicate",
+      "status": "SKIPPED",
+      "how": "real sandbox",
+      "detail": "Runs inside the isolated container network: python scripts/airgap.py"
+    }
+  ]
+}

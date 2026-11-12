@@ -1,0 +1,13 @@
+{
+  "mode": "real sandbox",
+  "model": "scripted, not AI",
+  "results": [
+    {
+      "case": "i",
+      "title": "Item not received: tracking submitted before the deadline",
+      "status": "SKIPPED",
+      "how": "real sandbox",
+      "detail": "No open 'item not received' sandbox dispute. Open one as the sandbox buyer in the Resolution Center."
+    }
+  ]
+}

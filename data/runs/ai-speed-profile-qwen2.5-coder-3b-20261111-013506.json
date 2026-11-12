@@ -1,0 +1,42 @@
+{
+  "label": "local run on the local provider",
+  "model": "qwen2.5-coder:3b",
+  "started": "2026-11-11T01:31:58.376166+00:00",
+  "cpu_load_percent_before": 36.0,
+  "rows": [
+    {
+      "call": "merchant decision",
+      "median_wall_ms": 8518,
+      "prompt_tokens": 229,
+      "prompt_ms": 102,
+      "gen_tokens": 42,
+      "gen_ms": 4923,
+      "tokens_per_s": 8.5,
+      "load_ms": 306,
+      "reply": "{\n  \"action\": \"settle_by_offer\",\n  \"offer_usd\": 2.50,\n  \"message\": \"We offer USD 2.50 to settle this.\"\n}"
+    },
+    {
+      "call": "buyer draft",
+      "median_wall_ms": 14593,
+      "prompt_tokens": 116,
+      "prompt_ms": 113,
+      "gen_tokens": 56,
+      "gen_ms": 8063,
+      "tokens_per_s": 6.9,
+      "load_ms": 367,
+      "reply": "{\n  \"message\": \"I'm sorry to hear that the notebook-a5 x3 did not arrive as expected. Two out of three items were delivered, and I believe one was lost or damaged during transit. Could you please prov"
+    },
+    {
+      "call": "rules",
+      "median_wall_ms": 13785,
+      "prompt_tokens": 216,
+      "prompt_ms": 135,
+      "gen_tokens": 62,
+      "gen_ms": 8723,
+      "tokens_per_s": 7.1,
+      "load_ms": 538,
+      "reply": "{\n  \"refund_limit\": 3000,\n  \"approval_above\": 5000,\n  \"not_received_days\": 0,\n  \"never_refund_twice\": false,\n  \"fight_reasons\": [\"item_not_received\"],\n  \"currency\": \"USD\"\n}"
+    }
+  ],
+  "cpu_load_percent_after": 34.0
+}

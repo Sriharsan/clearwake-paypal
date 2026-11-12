@@ -1,0 +1,208 @@
+{
+ "kind": "page-audit",
+ "mode": "real",
+ "site": "http://127.0.0.1:10998",
+ "console": "",
+ "date": "2026-11-12",
+ "viewports": [
+  "390",
+  "1440"
+ ],
+ "schemes": [
+  "light",
+  "dark"
+ ],
+ "pages": [
+  {
+   "page": "/",
+   "base": "http://127.0.0.1:10998/",
+   "checks": [
+    {
+     "viewport": "390",
+     "scheme": "light",
+     "pass": true,
+     "problems": []
+    },
+    {
+     "viewport": "390",
+     "scheme": "dark",
+     "pass": true,
+     "problems": []
+    },
+    {
+     "viewport": "1440",
+     "scheme": "light",
+     "pass": true,
+     "problems": []
+    },
+    {
+     "viewport": "1440",
+     "scheme": "dark",
+     "pass": true,
+     "problems": []
+    }
+   ],
+   "pass": true
+  },
+  {
+   "page": "/control-room",
+   "base": "http://127.0.0.1:10998/",
+   "checks": [
+    {
+     "viewport": "390",
+     "scheme": "light",
+     "pass": true,
+     "problems": []
+    },
+    {
+     "viewport": "390",
+     "scheme": "dark",
+     "pass": true,
+     "problems": []
+    },
+    {
+     "viewport": "1440",
+     "scheme": "light",
+     "pass": true,
+     "problems": []
+    },
+    {
+     "viewport": "1440",
+     "scheme": "dark",
+     "pass": true,
+     "problems": []
+    }
+   ],
+   "pass": true
+  },
+  {
+   "page": "/break",
+   "base": "http://127.0.0.1:10998/",
+   "checks": [
+    {
+     "viewport": "390",
+     "scheme": "light",
+     "pass": true,
+     "problems": []
+    },
+    {
+     "viewport": "390",
+     "scheme": "dark",
+     "pass": true,
+     "problems": []
+    },
+    {
+     "viewport": "1440",
+     "scheme": "light",
+     "pass": true,
+     "problems": []
+    },
+    {
+     "viewport": "1440",
+     "scheme": "dark",
+     "pass": true,
+     "problems": []
+    }
+   ],
+   "pass": true
+  },
+  {
+   "page": "/proof",
+   "base": "http://127.0.0.1:10998/",
+   "checks": [
+    {
+     "viewport": "390",
+     "scheme": "light",
+     "pass": true,
+     "problems": []
+    },
+    {
+     "viewport": "390",
+     "scheme": "dark",
+     "pass": true,
+     "problems": []
+    },
+    {
+     "viewport": "1440",
+     "scheme": "light",
+     "pass": true,
+     "problems": []
+    },
+    {
+     "viewport": "1440",
+     "scheme": "dark",
+     "pass": true,
+     "problems": []
+    }
+   ],
+   "pass": true
+  },
+  {
+   "page": "/developers",
+   "base": "http://127.0.0.1:10998/",
+   "checks": [
+    {
+     "viewport": "390",
+     "scheme": "light",
+     "pass": true,
+     "problems": []
+    },
+    {
+     "viewport": "390",
+     "scheme": "dark",
+     "pass": true,
+     "problems": []
+    },
+    {
+     "viewport": "1440",
+     "scheme": "light",
+     "pass": true,
+     "problems": []
+    },
+    {
+     "viewport": "1440",
+     "scheme": "dark",
+     "pass": true,
+     "problems": []
+    }
+   ],
+   "pass": true
+  },
+  {
+   "page": "/merchants",
+   "base": "http://127.0.0.1:10998/",
+   "checks": [
+    {
+     "viewport": "390",
+     "scheme": "light",
+     "pass": true,
+     "problems": []
+    },
+    {
+     "viewport": "390",
+     "scheme": "dark",
+     "pass": true,
+     "problems": []
+    },
+    {
+     "viewport": "1440",
+     "scheme": "light",
+     "pass": true,
+     "problems": []
+    },
+    {
+     "viewport": "1440",
+     "scheme": "dark",
+     "pass": true,
+     "problems": []
+    }
+   ],
+   "pass": true
+  }
+ ],
+ "summary": {
+  "pages": 6,
+  "pass": 6,
+  "fail": 0
+ }
+}

@@ -1,0 +1,13 @@
+{
+  "mode": "real sandbox",
+  "model": "scripted, not AI",
+  "results": [
+    {
+      "case": "o",
+      "title": "Dispatch proof: buyer says 2 of 3 items arrived, evidence sent",
+      "status": "FAIL",
+      "how": "real sandbox; facebook/sam3 sam3.pt, local, cpu",
+      "detail": "dispute PP-R-UKF-10195772: provide_evidence, UNKNOWN. Evidence response lost. Read the dispute before doing anything else. Dispatch proof: 3 of 3 notebook-a5 counted, sealed, receipt 8b92abb9, UPS tracking shipped"
+    }
+  ]
+}
