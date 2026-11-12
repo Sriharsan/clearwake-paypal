@@ -1,7 +1,7 @@
 {
  "kind": "page-audit",
  "mode": "real",
- "site": "http://127.0.0.1:10998",
+ "site": "http://127.0.0.1:10770",
  "console": "",
  "date": "2026-11-12",
  "viewports": [
@@ -15,7 +15,7 @@
  "pages": [
   {
    "page": "/",
-   "base": "http://127.0.0.1:10998/",
+   "base": "http://127.0.0.1:10770/",
    "checks": [
     {
      "viewport": "390",
@@ -46,7 +46,7 @@
   },
   {
    "page": "/control-room",
-   "base": "http://127.0.0.1:10998/",
+   "base": "http://127.0.0.1:10770/",
    "checks": [
     {
      "viewport": "390",
@@ -77,7 +77,7 @@
   },
   {
    "page": "/break",
-   "base": "http://127.0.0.1:10998/",
+   "base": "http://127.0.0.1:10770/",
    "checks": [
     {
      "viewport": "390",
@@ -108,7 +108,7 @@
   },
   {
    "page": "/proof",
-   "base": "http://127.0.0.1:10998/",
+   "base": "http://127.0.0.1:10770/",
    "checks": [
     {
      "viewport": "390",
@@ -139,7 +139,7 @@
   },
   {
    "page": "/developers",
-   "base": "http://127.0.0.1:10998/",
+   "base": "http://127.0.0.1:10770/",
    "checks": [
     {
      "viewport": "390",
@@ -170,7 +170,7 @@
   },
   {
    "page": "/merchants",
-   "base": "http://127.0.0.1:10998/",
+   "base": "http://127.0.0.1:10770/",
    "checks": [
     {
      "viewport": "390",

@@ -143,5 +143,20 @@ class MerchantsBrowser(unittest.TestCase):
         self.assertIn("all four", self.run_page("/merchants", None, check))
 
 
+
+class SurveyTests(MerchantsBrowser):
+    def test_the_survey_section_shows_only_counts_and_no_personal_detail(self):
+        data = json.loads((ROOT / "site" / "data" / "merchant-survey.json").read_text(encoding="utf-8"))
+        self.assertEqual(set(data), {"sellers", "cases_per_month_each_low", "cases_per_month_each_high", "cases_per_month_total_low",
+                                     "cases_per_month_total_high", "agreed_to_be_quoted", "note"})
+        self.assertEqual(data["agreed_to_be_quoted"], 0)
+        def check(page):
+            page.wait_for_selector("#survey:not([hidden])", timeout=8000)
+            return page.inner_text("#survey")
+        text = self.run_page("/merchants", None, check)
+        for want in (str(data["sellers"]), f"{data['cases_per_month_each_low']} to {data['cases_per_month_each_high']}",
+                     f"{data['cases_per_month_total_low']} to {data['cases_per_month_total_high']}", "withheld"):
+            self.assertIn(want, text)
+
 if __name__ == "__main__":
     unittest.main()

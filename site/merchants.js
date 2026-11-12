@@ -44,6 +44,16 @@
     src.append("Sources: ", link(k.fee_page, "PayPal merchant fees"), ", ", link(k.fee_help, "PayPal Help Center help349"), ", ", link(k.rule_source[1], "help350"), ". Our figures: " + m.batch_source + ".");
   }).catch(function () { $("m-cases-note").textContent = "The run figures could not be loaded. They are in the run files named on the Control Room page."; });
 
+  fetch("data/merchant-survey.json", { credentials: "omit" }).then(function (r) { return r.json(); }).then(function (v) {
+    var host = $("m-survey-nums");
+    function tile(value, label) { var d = el("div", ""), dd = el("dd", "num tnum", value), dt = el("dt", "", label); d.append(dd, dt); return d; }
+    host.append(tile(String(v.sellers), "sellers answered"),
+      tile(v.cases_per_month_each_low + " to " + v.cases_per_month_each_high, "not received cases a month, per seller"),
+      tile(v.cases_per_month_total_low + " to " + v.cases_per_month_total_high, "a month across the five"));
+    $("m-survey-note").textContent = v.note;
+    $("survey").hidden = false;
+  }).catch(function () { /* no figures rather than unsourced ones */ });
+
   var form = $("m-form");
   form.addEventListener("submit", function (ev) {
     ev.preventDefault();

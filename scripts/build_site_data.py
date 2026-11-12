@@ -822,7 +822,7 @@ def main():
         (data / "merchants.json").write_text(json.dumps(md, indent=1, ensure_ascii=False) + "\n", encoding="utf-8")
     (data / "totals.json").write_text(json.dumps(tot, indent=1, ensure_ascii=False) + "\n", encoding="utf-8")
     (ROOT / "web" / "batch-tally.json").write_text(json.dumps(batch_tally(tot["public"]), indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-    files = sorted(p.name for p in data.glob("*.json") if p.name not in ("manifest.json", "totals.json", "break.json", "hud-case.json", "room.json", "counts.json", "cases.json", "why-now.json", "merchants.json", "quotes.json", "contact.json"))
+    files = sorted(p.name for p in data.glob("*.json") if p.name not in ("manifest.json", "totals.json", "break.json", "hud-case.json", "room.json", "counts.json", "cases.json", "why-now.json", "merchants.json", "quotes.json", "contact.json", "merchant-survey.json"))
     files.remove("ledger.json"); files.insert(0, "ledger.json")
     (data / "manifest.json").write_text(json.dumps({"files": files}, indent=1) + "\n", encoding="utf-8")
     print("site/data/manifest.json lists:", ", ".join(files))
