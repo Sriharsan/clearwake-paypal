@@ -278,7 +278,7 @@ def room_numbers():
     if c4 and c4["paypal"]["status"] == "RESOLVED" and c4["paypal"].get("fees"):
         counts, vsrc = batch_counts(), voice["file"]
         fee = c4["paypal"]["fees"][0]["amount"]
-        out["public"].append({"value": f"{counts['resolved']} of {n}", "label": f"claims resolved inside PayPal: {counts['settled']} at INQUIRY with no fee, case 4 at CHARGEBACK with the USD {fee} settlement fee", "source": f"{vsrc} and {src}", "mode": mode})
+        out["public"].append({"value": f"{counts['resolved']} of {n}", "label": f"claims resolved inside PayPal: {counts['settled']} at INQUIRY with no dispute fee (USD 0.77 settlement fee each), case 4 at CHARGEBACK with the USD {fee} settlement fee", "source": f"{vsrc} and {src}", "mode": mode})
         if sm.get("refunds_confirmed_total") is not None:
             total = Decimal(str(sm["refunds_confirmed_total"])) + Decimal(c4["paypal"]["amount_refunded"])
             out["public"].append({"value": f"USD {total:.2f}", "label": f"refunded in all, each refund on PayPal's record: USD {sm['refunds_confirmed_total']} at INQUIRY and USD {c4['paypal']['amount_refunded']} on case 4", "source": f"{vsrc} and {src}", "mode": mode})

@@ -4,7 +4,7 @@
 
 **When an agent's order goes missing, agents fix it.**
 
-**Real PayPal sandbox run, 11 and 12 November 2026.** 10 orders bought by an agent, 10 item not received claims. 5 resolved inside PayPal, 4 of them at INQUIRY with no fee. 4 answered with proof, under PayPal review. 1 refused by the buyer agent's mandate before it was filed with PayPal. USD 0.00 overpaid against USD 2,633.25 for an agent on the PayPal Agent Toolkit alone.
+**Real PayPal sandbox run, 11 and 12 November 2026.** 10 orders bought by an agent, 10 item not received claims. 5 resolved inside PayPal, 4 of them at INQUIRY with no dispute fee (USD 0.77 settlement fee each). 4 answered with proof, under PayPal review. 1 refused by the buyer agent's mandate before it was filed with PayPal. USD 0.00 overpaid against USD 2,633.25 for an agent on the PayPal Agent Toolkit alone.
 
 This file matches the real footage. The nine clips are in `D:\paypal hackathon\video\`, one file per scene, screen only, no narration, product sounds and the two Sarvam Bulbul voices kept. `timing.json` there lists every clip with its slot and Sri's line. Sri speaks the narration over the clips in his own words; the lines below are a draft, and he decides the final cut, any face or phone footage and every video choice.
 
@@ -92,7 +92,7 @@ Home page: the Verify button runs on load and checks every signed log in the bro
 
 The Control Room: the counted tally, the ten case cards, the dispute ledger with its stage filter.
 
-**SAY:** "Ten orders on the real sandbox, ten claims. Five resolved inside PayPal, four of them at inquiry with no fee. Four answered with proof and under PayPal review. None waiting for the owner. One was refused by the buyer's mandate before it was filed: twenty dollars claimed on a nine dollar order. Zero double refunds."
+**SAY:** "Ten orders on the real sandbox, ten claims. Five resolved inside PayPal, four of them at inquiry with no dispute fee. Four answered with proof and under PayPal review. None waiting for the owner. One was refused by the buyer's mandate before it was filed: twenty dollars claimed on a nine dollar order. Zero double refunds."
 
 **CAPTION:** 5 of 10 resolved, 4 answered with proof, 1 refused by the mandate
 

@@ -86,9 +86,11 @@ class HomeCountsTests(unittest.TestCase):
                 page.goto(f"http://127.0.0.1:{server.server_address[1]}/index.html", wait_until="networkidle")
                 page.wait_for_selector("#mp-nums:not([hidden])", timeout=15000)
                 shown = page.evaluate("""() => Object.fromEntries([...document.querySelectorAll('#mp-nums > div')].map(d => [d.querySelector('dt').textContent, Number(d.querySelector('dd').textContent)]))""")
+                line = page.text_content("#res-resolved")
                 browser.close()
         finally:
             server.shutdown()
+        self.assertEqual(line, f"{want['resolved']} of 10 resolved inside PayPal, {want['settled']} before a claim.")
         self.assertEqual(shown, {"answered with proof": want["answered with proof"], "resolved inside PayPal": want["resolved"],
                                  "waiting for the owner": want["waiting for the owner"]})
 

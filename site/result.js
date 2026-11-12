@@ -28,6 +28,7 @@
   }
   get('data/counts.json').then(function (c) {
     if (!c || !c.cases) return;
+    if ($('res-resolved') && c.resolved !== undefined) $('res-resolved').textContent = c.resolved + ' of ' + c.cases + ' resolved inside PayPal, ' + c.settled + ' before a claim.';
     var host = $('mp-nums');
     host.append(tile(c.answered_with_proof, 'answered with proof'), tile(c.resolved === null || c.resolved === undefined ? c.settled : c.resolved, 'resolved inside PayPal'), tile(c.waiting_for_owner, 'waiting for the owner'));
     host.hidden = false;
