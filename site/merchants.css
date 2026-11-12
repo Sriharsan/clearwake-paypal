@@ -1,0 +1,48 @@
+.m-hero{padding-block:clamp(2.5rem,6vw,4.5rem) 1.5rem}
+.m-hero h1{font-size:clamp(2.2rem,5.5vw,4rem);letter-spacing:-.04em;line-height:1.04;max-width:22ch;margin-bottom:1rem}
+.m-band{padding-block:clamp(2rem,4.5vw,3.5rem);border-top:1px solid var(--border)}
+.m-band h2{font-size:clamp(1.6rem,3.6vw,2.6rem);letter-spacing:-.03em;line-height:1.1;margin-bottom:.9rem;max-width:26ch}
+.m-band .lede{margin:0 0 1.25rem}
+.m-steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+.m-step{background:var(--surface);border:1px solid var(--border);border-radius:calc(var(--radius) * 2);padding:1.25rem;min-width:0}
+.m-step .n{display:inline-grid;place-items:center;width:2rem;height:2rem;border-radius:50%;background:var(--teal);color:var(--on-teal);font:700 1rem/1 var(--font-display);margin-bottom:.75rem}
+.m-step h3{font-size:1.2rem;margin-bottom:.5rem}
+.m-step p{color:var(--mist);font-size:1rem;margin:0 0 .75rem}
+.m-code{background:var(--background);border:1px solid var(--border);border-radius:var(--radius);padding:.75rem;overflow-x:auto;font:400 .85rem/1.55 var(--font-code);margin:0;white-space:pre}
+.m-snip{max-width:48rem}
+.m-nums{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem 1.5rem;margin:0 0 1rem}
+.m-nums>div{display:flex;flex-direction:column-reverse;gap:.3rem;min-width:0}
+.m-nums dd{margin:0;font:700 clamp(2.4rem,5vw,3.6rem)/.95 var(--font-display);letter-spacing:-.04em;color:var(--teal)}
+.m-nums dt{font-weight:600;line-height:1.3}
+.m-cases{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+.m-case{background:var(--surface);border:1px solid var(--border);border-top:3px solid var(--teal);border-radius:calc(var(--radius) * 2);padding:1.25rem;min-width:0}
+.m-case h3{font-size:1.25rem;margin-bottom:.4rem}
+.m-case p{margin:0 0 .5rem;color:var(--mist);font-size:1rem;overflow-wrap:anywhere}
+.m-case .mono{color:var(--foreground)}
+.m-tag{display:inline-block;margin:0 0 .75rem;padding:.2rem .65rem;border:1px solid var(--teal);border-radius:999px;color:var(--teal);font:600 .8125rem/1.4 var(--font-sans)}
+.m-cost{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+.m-cost .col{background:var(--surface);border:1px solid var(--border);border-radius:calc(var(--radius) * 2);padding:1.25rem;min-width:0}
+.m-cost .col.good{border-top:3px solid var(--teal)}
+.m-cost .col.base{border-top:3px solid var(--amber)}
+.m-cost h3{font-size:1.2rem;margin-bottom:.6rem}
+.m-cost .big{font:700 clamp(2rem,4vw,2.8rem)/1 var(--font-display);letter-spacing:-.04em;margin:0 0 .3rem}
+.m-cost .good .big{color:var(--teal)}
+.m-cost p{margin:0 0 .5rem;color:var(--mist);font-size:1rem}
+.m-src{font-size:.9rem;color:var(--mist);overflow-wrap:anywhere}
+.m-form{display:grid;gap:1rem;max-width:36rem}
+.m-form label,.m-form legend{display:block;font-weight:600;margin-bottom:.35rem}
+.m-form input[type=text],.m-form input[type=number],.m-form textarea{width:100%;box-sizing:border-box;padding:.7rem .85rem;border:1px solid var(--border);border-radius:var(--radius);background:var(--surface);color:var(--foreground);font:inherit}
+.m-form fieldset{border:0;margin:0;padding:0}
+.m-form .radios{display:flex;gap:1.25rem;flex-wrap:wrap}
+.m-form .radios label{display:inline-flex;align-items:center;gap:.5rem;font-weight:500;margin:0;min-height:2.75rem}
+.m-form .btn{justify-self:start}
+.m-note{color:var(--mist);font-size:.95rem;max-width:40rem}
+.m-status{min-height:1.5rem;color:var(--teal);font-weight:600}
+.quote{margin:0 0 1rem;padding:1.25rem;background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--teal);border-radius:var(--radius)}
+.quote blockquote{margin:0 0 .5rem;font-size:1.25rem;line-height:1.4}
+.quote figcaption{color:var(--mist);font-size:.95rem}
+@media (max-width:63.99rem){.m-steps{grid-template-columns:1fr}.m-nums{grid-template-columns:repeat(2,minmax(0,1fr))}.m-cases,.m-cost{grid-template-columns:1fr}}
+@media (max-width:30rem){.m-nums dd{font-size:2.2rem}}
+.m-code{white-space:pre-wrap;overflow-wrap:anywhere}
+.foot-in{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.75rem 2rem}
+.foot-links{display:flex;flex-wrap:wrap;gap:.5rem 1.25rem}

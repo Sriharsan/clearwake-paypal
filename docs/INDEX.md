@@ -45,6 +45,7 @@ Tags used on every page, each item carries one: **Real PayPal sandbox run**, **P
 * [../SECURITY.md](../SECURITY.md): the security boundary.
 * [TOOLKIT_GUARD.md](TOOLKIT_GUARD.md): three lines of guard for agents that call the toolkit, with the 80 attack episodes side by side.
 * [MCP_GUARD.md](MCP_GUARD.md): the proxy between an MCP client and PayPal's MCP server.
+* [MCP_SERVER.md](MCP_SERVER.md): Clearwake as an MCP server in front of PayPal, the same 28 tools guarded, with the clean virtualenv install check.
 * [SANDBOX_RUN.md](SANDBOX_RUN.md): case m, the network cut run, and the signed egress gateway log.
 
 ## Developer tools: Postman, OpenAPI, APIMatic, MCP guard
@@ -53,6 +54,7 @@ Tags used on every page, each item carries one: **Real PayPal sandbox run**, **P
 * [APIMATIC.md](APIMATIC.md): the OpenAPI 3.1 spec, CLI validation from 382 findings to 104, Python SDK 0.6.1 and the static portal.
 * [RENDER.md](RENDER.md): hosting the live console on Render.
 * [MCP_GUARD.md](MCP_GUARD.md): run the guard in front of `@paypal/mcp`.
+* [MCP_SERVER.md](MCP_SERVER.md): point Claude Desktop or Claude Code at `python -m clearwake.mcp_server`.
 * The OpenAPI spec is `openapi/clearwake-console.openapi.yaml` and the collection is `postman/clearwake-paypal.postman_collection.json`.
 
 ## Voice and rules

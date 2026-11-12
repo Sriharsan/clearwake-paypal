@@ -16,7 +16,7 @@
 <header class="bar">
   <div class="wrap">
     <a class="brand" href="/">Clearwake</a>
-    <nav aria-label="Main"> <a href="/">Home</a> <a href="/control-room">Control Room</a> <a href="/break">Break it</a> <a href="/proof">Proof</a> <a href="/developers" aria-current="page">Developers</a> <button class="theme" type="button" aria-label="Switch to the light theme"><svg class="ico sun" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M18.7 5.3l-1.6 1.6M6.9 17.1l-1.6 1.6"/></svg><svg class="ico moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 14.2A8.5 8.5 0 0 1 9.8 4a8.5 8.5 0 1 0 10.2 10.2z"/></svg></button>
+    <nav aria-label="Main"> <a href="/">Home</a> <a href="/control-room">Control Room</a> <a href="/break">Break it</a> <a href="/proof">Proof</a> <a href="/developers" aria-current="page">Developers</a> <a href="/merchants">Merchants</a> <button class="theme" type="button" aria-label="Switch to the light theme"><svg class="ico sun" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M18.7 5.3l-1.6 1.6M6.9 17.1l-1.6 1.6"/></svg><svg class="ico moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 14.2A8.5 8.5 0 0 1 9.8 4a8.5 8.5 0 1 0 10.2 10.2z"/></svg></button>
     </nav>
   </div>
 </header>
@@ -95,6 +95,20 @@ print(tools.verify())</code></pre></figure>
         <tr><td><code>pay_order</code>, <code>send_invoice</code>, <code>send_invoice_reminder</code>, <code>record_payment_for_invoice</code>, <code>record_refund_for_invoice</code>, <code>activate_recurring_series</code></td><td>6</td><td>Held for a person unless the policy names the tool as an operation. A request id and a signed receipt either way. The guard cannot read their amount from one record, so a policy line with <code>max_amount_minor</code> for them holds the call.</td></tr>
       </tbody></table></div>
     <p>A call that is stopped returns JSON text: <code>{"clearwake_guard": {"state": ..., "detail": ..., "sent": false, "request_id": ...}}</code>. A call that went through returns PayPal's own reply unchanged. A call that lost its reply raises the original error to the agent. Approve a held move with <code>tools.approve(approval_id, by="your name")</code>; <code>tools.pending()</code> lists the open requests. <code>tools.verify()</code> checks the receipt log offline against its own public key.</p>
+    <h3>Or point your agent at Clearwake's MCP server</h3>
+    <p>Install it as above (<code>pip install git+https://github.com/Sriharsan/clearwake-paypal</code>). Claude, ChatGPT, Cursor or any MCP client can then use Clearwake in place of PayPal's MCP server. It lists the same 28 PayPal tools with the same names and schemas. The money tools are guarded, the read tools pass through. The default backend is the local provider: no account, no network, nothing real to move.</p>
+    <figure class="cb"><div class="cb-head"><span class="cb-label"><span class="tag">Claude Code</span> one line</span></div>
+<pre tabindex="0"><code>claude mcp add paypal-guarded -- python -m clearwake.mcp_server</code></pre></figure>
+    <figure class="cb"><div class="cb-head"><span class="cb-label"><span class="tag">Claude Desktop</span> claude_desktop_config.json</span></div>
+<pre tabindex="0"><code>{
+  "mcpServers": {
+    "paypal-guarded": {
+      "command": "python",
+      "args": ["-m", "clearwake.mcp_server"]
+    }
+  }
+}</code></pre></figure>
+    <p>To put it in front of PayPal's own MCP server on the sandbox, add <code>"--backend", "paypal"</code> to the args and set <code>CLEARWAKE_SANDBOX_ACK=I_CONFIRM_SANDBOX_ONLY</code>, <code>PAYPAL_ENVIRONMENT=SANDBOX</code> and a sandbox <code>PAYPAL_ACCESS_TOKEN</code> in the client's environment. Clearwake refuses to start without them. Details and the install check are in <code>docs/MCP_SERVER.md</code>.</p>
     <p class="note">Tested against the real list of 47 tools recorded in <code>docs/paypal_mcp_tools.json</code>, with no network (<code>tests/test_guard_api.py</code>). The wrapped tools were not run against the live PayPal sandbox, and the toolkit as recorded sends no <code>PayPal-Request-Id</code>, so protection against a repeat comes from the ledger and from reading PayPal's record before any retry. The rest of the guard is described in <a href="https://github.com/Sriharsan/clearwake-paypal/blob/main/docs/TOOLKIT_GUARD.md">docs/TOOLKIT_GUARD.md</a>, and the <a href="/break">Break it</a> page replays the recorded attacks.</p>
   </div>
 </section>

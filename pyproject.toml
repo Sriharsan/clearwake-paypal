@@ -29,4 +29,4 @@ verdock_core = "vendor/verdock-core/verdock_core"
 relayloom = "vendor/relayloom/relayloom"
 
 [tool.setuptools.package-data]
-clearwake = ["catalog.json", "packaged/*.yaml"]
+clearwake = ["catalog.json", "packaged/*.yaml", "packaged/*.json"]

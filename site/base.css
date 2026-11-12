@@ -54,3 +54,4 @@ th{font:500 .875rem/1.2 var(--font-mono);letter-spacing:.08em;text-transform:upp
 
 /* five link nav: on narrow screens the brand text is hidden so the links and the theme button fit on every page */
 @media (max-width:40rem){.bar .brand{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}.bar .wrap{justify-content:center}.bar .wrap nav a{padding:.5rem .3rem}.bar .wrap .theme{margin-left:0}}
+@media (max-width:40rem){.bar{position:static}.bar .wrap{height:auto;flex-wrap:wrap;padding-block:.35rem}.bar nav{flex-wrap:wrap;justify-content:center;row-gap:0}.bar .wrap .theme{width:2.5rem;height:2.5rem}}

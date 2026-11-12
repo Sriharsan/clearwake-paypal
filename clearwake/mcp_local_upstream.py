@@ -22,6 +22,8 @@ import time
 
 ROOT = Path(__file__).resolve().parent.parent
 TOOLS_FILE = ROOT / "docs" / "paypal_mcp_tools.json"
+if not TOOLS_FILE.is_file():   # a pip install: the same tool list ships inside the package
+    TOOLS_FILE = Path(__file__).resolve().parent / "packaged" / "paypal_mcp_tools.json"
 NOTE_PATTERN = re.compile(r"^[A-Za-z0-9_-]{1,255}$")   # the pattern @paypal/agent-toolkit 1.11.0 puts on accept_dispute_claim.note
 
 

@@ -744,6 +744,49 @@ def batch_tally(public):
     return out
 
 
+FEE_PAGE = "https://history.paypal.com/us/webapps/mpp/merchant-fees"
+FEE_HELP = "https://history.paypal.com/us/cshelp/article/what-is-the-paypal-dispute-fee-and-why-was-i-charged-one-help349"
+FEE_WAIVER = "The Standard Dispute Fee will be waived for Inquiries in the PayPal Resolution Center that aren't escalated to a claim"
+
+
+def merchants_data():
+    """site/data/merchants.json for the /merchants page: the ten cases, the two voice decisions and the cost of one escalated case against one settled case.
+    Every figure is read from the run files or from clearwake/fees.py (PayPal's fee table, cited in docs/WHY_NOW.md). Nothing is typed here."""
+    import sys
+    sys.path.insert(0, str(ROOT))
+    from clearwake import fees
+    path, body = clean_sandbox_batch()
+    voice = voice_decisions()
+    if not body or not voice:
+        return None
+    rows = {int(r["n"]): r for r in body["cases"]}
+    c4, c9 = voice["cases"][4], voice["cases"][9]
+    fee_minor = lambda minor: f"{minor / 100:.2f}"
+    settled = [n for n, r in rows.items() if r.get("outcome") == "settled_inquiry_no_fee"]
+    settle_fee = settlement_fee(3)
+    return {
+        "counts": batch_counts(),
+        "batch_source": f"data/runs/{path.name}",
+        "voice_source": voice["file"],
+        "voice": {
+            "channel": "voice", "stt": voice["body"].get("stt"), "owner_voice": voice["body"].get("owner_voice"), "reply_voice": voice["body"].get("reply_voice"),
+            "case4": {"case": 4, "dispute": c4["dispute"], "command": c4["command"], "writes": c4["accept_claim_writes"], "status": c4["paypal"]["status"],
+                      "stage": c4["paypal"]["stage"], "outcome": c4["paypal"]["outcome_code"], "refund_id": c4["paypal"]["refund_id"],
+                      "refund_amount": c4["paypal"]["refund_amount"], "fee": next(f["amount"] for f in c4["paypal"]["fees"] if f["reason"] == "DISPUTE_SETTLEMENT_FEE")},
+            "case9": {"case": 9, "dispute": c9["dispute"], "command": c9["command"], "writes": c9["provide_evidence_writes"], "money_moved": c9["read_right_after_sending"]["money_moved"],
+                      "status": c9["read_right_after_sending"]["status"], "stage": c9["read_right_after_sending"]["stage"],
+                      "evidence_received": c9["read_right_after_sending"]["evidence_received"]},
+        },
+        "cost": {
+            "standard_fee": fee_minor(fees.STANDARD_FEE_MINOR), "high_volume_fee": fee_minor(fees.HIGH_VOLUME_FEE_MINOR), "currency": "USD",
+            "fee_below_twice_standard": "not charged on claims below twice the Standard fee (clearwake/fees.py, PayPal Help Center help350)",
+            "waiver": FEE_WAIVER, "fee_page": FEE_PAGE, "fee_help": FEE_HELP, "rule_source": list(fees.RULE_SOURCE),
+            "settlement_fee": settle_fee, "settled_cases": settled, "settled_example": {"case": 3, "dispute": rows[3]["dispute_id"], "claim": rows[3]["ask"], "paid": rows[3]["paid"]},
+            "escalated_example": {"case": 4, "dispute": rows[4]["dispute_id"], "claim": rows[4]["ask"], "paid": rows[4]["paid"], "refund": c4["paypal"]["refund_amount"]},
+        },
+    }
+
+
 def main():
     data = SITE / "data"
     data.mkdir(exist_ok=True)
@@ -774,9 +817,12 @@ def main():
         print("cases.json written:", len(cd["cases"]), "cases")
     tot = totals(build()["rows"])
     (data / "counts.json").write_text(json.dumps(batch_counts(), indent=1) + "\n", encoding="utf-8")
+    md = merchants_data()
+    if md:
+        (data / "merchants.json").write_text(json.dumps(md, indent=1, ensure_ascii=False) + "\n", encoding="utf-8")
     (data / "totals.json").write_text(json.dumps(tot, indent=1, ensure_ascii=False) + "\n", encoding="utf-8")
     (ROOT / "web" / "batch-tally.json").write_text(json.dumps(batch_tally(tot["public"]), indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-    files = sorted(p.name for p in data.glob("*.json") if p.name not in ("manifest.json", "totals.json", "break.json", "hud-case.json", "room.json", "counts.json", "cases.json", "why-now.json"))
+    files = sorted(p.name for p in data.glob("*.json") if p.name not in ("manifest.json", "totals.json", "break.json", "hud-case.json", "room.json", "counts.json", "cases.json", "why-now.json", "merchants.json", "quotes.json", "contact.json"))
     files.remove("ledger.json"); files.insert(0, "ledger.json")
     (data / "manifest.json").write_text(json.dumps({"files": files}, indent=1) + "\n", encoding="utf-8")
     print("site/data/manifest.json lists:", ", ".join(files))

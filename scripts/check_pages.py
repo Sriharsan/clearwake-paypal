@@ -19,7 +19,7 @@ from urllib.request import Request, urlopen
 from playwright.sync_api import sync_playwright
 
 ROOT = Path(__file__).resolve().parent.parent
-SITE_PAGES = ["/", "/control-room", "/break", "/proof", "/developers"]
+SITE_PAGES = ["/", "/control-room", "/break", "/proof", "/developers", "/merchants"]
 CONSOLE_PAGES = ["/console", "/voice"]
 VIEWPORTS = (("390", 390, 844), ("1440", 1440, 900))
 SCHEMES = ("light", "dark")

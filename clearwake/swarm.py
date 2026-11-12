@@ -29,6 +29,8 @@ from . import guard
 from .paypal import GatewayError, Offline, ProviderRefused
 
 POLICY = Path(__file__).resolve().parent.parent / "policy" / "merchant.yaml"
+if not POLICY.is_file():   # a pip install has no policy folder: the same signed policy ships inside the package
+    POLICY = Path(__file__).resolve().parent / "packaged" / "merchant.yaml"
 
 # The merchant decision prompt: a short fixed system text first (Ollama keeps its processed prefix between calls), the case data after it.
 # CLEARWAKE_MODEL_TEXT=on lets the model also write the short message to the buyer (code checks it); off, the checked template is sent. Each generated token

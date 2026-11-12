@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Merchants | Clearwake</title>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta name="description" content="Sell on PayPal? Try Clearwake on your own PayPal sandbox in 5 minutes. The ten real cases, the two voice decisions, and what one escalated case costs against one settled case.">
+<link rel="stylesheet" href="fonts.css">
+<link rel="stylesheet" href="base.css">
+<link rel="stylesheet" href="merchants.css">
+<script src="theme.js"></script>
+<script src="merchants.js" defer></script>
+<script src="quotes.js" defer></script>
+</head>
+<body>
+<header class="bar">
+  <div class="wrap">
+    <a class="brand" href="/">Clearwake</a>
+    <nav aria-label="Pages">
+      <a href="/">Home</a>
+      <a href="/control-room">Control Room</a>
+      <a href="/break">Break it</a>
+      <a href="/proof">Proof</a>
+      <a href="/developers">Developers</a> <a href="/merchants" aria-current="page">Merchants</a>
+      <button class="theme" type="button" aria-label="Switch to the light theme"><svg class="ico sun" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M18.7 5.3l-1.6 1.6M6.9 17.1l-1.6 1.6"/></svg><svg class="ico moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 14.2A8.5 8.5 0 0 1 9.8 4a8.5 8.5 0 1 0 10.2 10.2z"/></svg></button>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="m-hero wrap" aria-labelledby="m-h">
+    <p class="eyebrow">Merchants</p>
+    <h1 id="m-h">Sell on PayPal? Try it on your own sandbox in 5 minutes.</h1>
+    <p class="lede">When an AI agent buys something and it never arrives, Clearwake lets the buyer's agent and the seller's agent settle it inside PayPal within an hour, with proof, before it becomes a claim or a fee, and nothing is paid twice. Test money only. Nothing here touches a real account.</p>
+  </section>
+
+  <section class="m-band wrap" aria-labelledby="m-steps-h">
+    <h2 id="m-steps-h">Three steps</h2>
+    <ol class="m-steps">
+      <li class="m-step"><span class="n" aria-hidden="true">1</span><h3>Get the code</h3><p>Clone the repository. Python only, no package to install for the first run.</p>
+<pre class="m-code" tabindex="0"><code>git clone --recurse-submodules https://github.com/Sriharsan/clearwake-paypal.git
+cd clearwake-paypal</code></pre></li>
+      <li class="m-step"><span class="n" aria-hidden="true">2</span><h3>Add your sandbox keys</h3><p>Create a sandbox app in the PayPal developer dashboard. Put its keys in a <code>.env</code> file. Git ignores that file. The acknowledgement line keeps it sandbox only.</p>
+<pre class="m-code" tabindex="0"><code>CLEARWAKE_SANDBOX_ACK=I_CONFIRM_SANDBOX_ONLY
+PAYPAL_CLIENT_ID=
+PAYPAL_CLIENT_SECRET=
+PAYPAL_BASE_URL=https://api-m.sandbox.paypal.com</code></pre></li>
+      <li class="m-step"><span class="n" aria-hidden="true">3</span><h3>Run it</h3><p>Open the console it prints. Your rules, said or typed once, become a signed policy. The two agents do the rest.</p>
+<pre class="m-code" tabindex="0"><code>python -m clearwake --port 8810</code></pre></li>
+    </ol>
+  </section>
+
+  <section class="m-band wrap" aria-labelledby="m-guard-h">
+    <h2 id="m-guard-h">Already use PayPal's Agent Toolkit? Three lines.</h2>
+    <p class="lede">Money moving tools get your limits, one request id per move, a read of PayPal's record before any retry, and a signed receipt. Read tools pass through unchanged.</p>
+<pre class="m-code m-snip" tabindex="0"><code>pip install git+https://github.com/Sriharsan/clearwake-paypal
+from clearwake import guard
+tools = guard(paypal_toolkit_tools, policy="policy.yaml")</code></pre>
+  </section>
+
+  <section class="m-band wrap" id="proof-cases" aria-labelledby="m-cases-h">
+    <p class="eyebrow">Real PayPal sandbox run</p>
+    <h2 id="m-cases-h">The ten cases, counted from PayPal's record.</h2>
+    <p class="lede">Ten orders bought by an agent, ten item not received claims, on the real PayPal sandbox.</p>
+    <dl class="m-nums" id="m-nums" hidden></dl>
+    <p class="m-note" id="m-cases-note"></p>
+    <p class="m-src mono" id="m-cases-src"></p>
+  </section>
+
+  <section class="m-band wrap" id="proof-voice" aria-labelledby="m-voice-h">
+    <p class="eyebrow">Real PayPal sandbox run, by voice</p>
+    <h2 id="m-voice-h">Two decisions, said aloud, through the signed policy.</h2>
+    <p class="lede">The owner speaks. A signed policy and an approval record decide. Every receipt says the command came by voice, and which voice.</p>
+    <div class="m-cases" id="m-voice" hidden></div>
+    <p class="m-src mono" id="m-voice-src"></p>
+  </section>
+
+  <section class="m-band wrap" id="proof-cost" aria-labelledby="m-cost-h">
+    <p class="eyebrow">What one case costs</p>
+    <h2 id="m-cost-h">One escalated case against one settled case.</h2>
+    <p class="lede" id="m-cost-lede"></p>
+    <div class="m-cost" id="m-cost" hidden></div>
+    <p class="m-note" id="m-cost-note"></p>
+    <p class="m-src" id="m-cost-src"></p>
+  </section>
+
+  <section class="m-band wrap" id="quotes" data-quotes hidden aria-labelledby="m-q-h">
+    <h2 id="m-q-h">What sellers say</h2>
+    <div data-quote-list></div>
+  </section>
+
+  <section class="m-band wrap" id="try" aria-labelledby="m-form-h">
+    <h2 id="m-form-h">Tell us about your shop.</h2>
+    <p class="lede">Four short questions. Your mail app opens with the answers filled in, addressed to Sri. Nothing is stored on this site.</p>
+    <form class="m-form" id="m-form" novalidate>
+      <div><label for="f-name">Your name</label><input type="text" id="f-name" name="name" autocomplete="name" required maxlength="120"></div>
+      <div><label for="f-sell">What do you sell?</label><input type="text" id="f-sell" name="sell" required maxlength="200"></div>
+      <div><label for="f-count">How many "not received" cases a month?</label><input type="number" id="f-count" name="count" min="0" max="100000" inputmode="numeric" required></div>
+      <fieldset><legend>May we quote you?</legend><div class="radios">
+        <label><input type="radio" name="quote" value="yes"> Yes</label>
+        <label><input type="radio" name="quote" value="no" checked> No</label></div></fieldset>
+      <button class="btn primary" type="submit">Open my mail app</button>
+      <p class="m-status" id="m-status" role="status" aria-live="polite"></p>
+    </form>
+    <p class="m-note">A quote is shown on this site only if you say yes, and only in your own words.</p>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <p>Clearwake. When an agent's order goes missing, agents fix it.</p>
+    <p class="foot-links"><a href="/control-room">Control Room</a><a href="/proof">Proof</a><a href="/developers">Developers</a><a href="/merchants">Merchants</a><a href="/break">Break it</a><a href="https://clearwake-api.vercel.app">API</a><a href="https://github.com/Sriharsan/clearwake-paypal">Repo</a><a href="https://github.com/Sriharsan/clearwake-paypal/blob/main/LICENSE">MIT</a></p>
+  </div>
+</footer>
+</body>
+</html>

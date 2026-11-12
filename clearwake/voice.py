@@ -657,7 +657,7 @@ class Voice:
         reply["source_record"] = record
         if not self.reply_voice_on() or not reply.get("text"):
             return reply
-        spoken = first_sentences(reply["text"])
+        spoken = first_sentences(reply.get("speak") or reply["text"])
         try:
             path = sarvam.speak(spoken, REPLY_VOICE)
         except sarvam.SarvamError as error:
@@ -755,7 +755,8 @@ class Voice:
         token = self.set_pending(kind="rules", rules_hash=view["rules_hash"], source=source, digest=digest)
         self.receipt("rules_read_back", {"transcript_sha256": digest, "source": source, "rules_hash": view["rules_hash"],
                                           "sentence_sha256": view["sentence_sha256"]})
-        return self.reply("set_rules", said, source, digest, text, how=how, needs_confirm=True, token=token, kind="rules", lines=lines,
+        spoken = "Here are your rules. " + (lines[0] if lines else "") + " Say yes to confirm, or no to cancel."   # the voice says the limit and the cue; the full read back is on screen
+        return self.reply("set_rules", said, source, digest, text, how=how, needs_confirm=True, token=token, kind="rules", lines=lines, speak=spoken,
                           proposal=view, heard=sentence if sentence != said else "")
 
     # -- ask
