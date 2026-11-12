@@ -52,7 +52,7 @@
     if (!name || !sell || count === "" || isNaN(Number(count)) || Number(count) < 0) { $("m-status").textContent = "Please fill in all four answers."; return; }
     fetch("data/contact.json", { credentials: "omit" }).then(function (r) { return r.json(); }).then(function (cfg) {
       var body = "Name: " + name + "\nWhat I sell: " + sell + "\nNot received cases a month: " + count + "\nMay you quote me: " + quote + "\n";
-      location.href = "mailto:" + cfg.to + "?subject=" + encodeURIComponent(cfg.subject) + "&body=" + encodeURIComponent(body);
+      var link = document.createElement("a"); link.href = "mailto:" + cfg.to + "?subject=" + encodeURIComponent(cfg.subject) + "&body=" + encodeURIComponent(body); document.body.appendChild(link); link.click(); link.remove();
       $("m-status").textContent = "Your mail app should open with the answers filled in. Press send there.";
     }).catch(function () { $("m-status").textContent = "The address could not be loaded. Try again."; });
   });
