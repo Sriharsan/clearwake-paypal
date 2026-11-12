@@ -27,3 +27,4 @@ data/voice-tls/
 *.crt
 
 build/
+*.egg-info/
