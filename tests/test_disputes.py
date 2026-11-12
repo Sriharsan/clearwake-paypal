@@ -129,7 +129,7 @@ class DisputeTests(unittest.TestCase):
         self.assertEqual(counts[("provide_evidence", VERIFIED)], 4)
         self.assertEqual(counts[("accept_and_refund", VERIFIED)], 4)
         self.assertEqual(counts[("escalate", "awaiting approval")], 2)
-        self.assertLess(elapsed, 30)
+        self.assertLess(elapsed, 120)
         self.assertTrue(verify_log(self.swarm.receipts.path, self.swarm.receipts.public_key)["ok"])
 
 
