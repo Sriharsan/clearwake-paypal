@@ -11,7 +11,7 @@
   function cap(s) { s = String(s || ''); return s.charAt(0).toUpperCase() + s.slice(1); }
 
   var watch = $('watch-video');
-  if (watch) watch.setAttribute('href', watch.getAttribute('data-video'));
+  if (watch) { var vurl = watch.getAttribute('data-video') || ''; if (!vurl || vurl.charAt(0) === '[') { watch.hidden = true; watch.style.display = 'none'; } else watch.setAttribute('href', vurl); }
 
   get('data/totals.json').then(function (t) {
     var base = ((t && t.public) || []).filter(function (n) { return /^USD /.test(String(n.value)); })[0];

@@ -111,16 +111,30 @@ class MerchantsBrowser(unittest.TestCase):
         self.assertNotIn("Hidden words", out[1])
         self.assertTrue(self.run_page("/merchants", [no_permission], lambda p: p.evaluate("document.querySelector('#quotes').hidden")))
 
-    def test_the_form_builds_a_mail_link_with_the_four_answers(self):
+    def test_the_form_opens_the_github_issue_form_with_the_four_answers_and_no_email(self):
         def check(page):
             page.fill("#f-name", "Test Seller")
             page.fill("#f-sell", "notebooks")
             page.fill("#f-count", "3")
             page.check("input[name=quote][value=yes]")
+            page.evaluate("window.open = (u) => { window.__opened = u; }")
+            page.evaluate("HTMLAnchorElement.prototype.click = function () { window.__opened = this.href; }")
             page.click("#m-form button[type=submit]")
             page.wait_for_timeout(600)
-            return page.inner_text("#m-status")
-        self.assertIn("mail app", self.run_page("/merchants", None, check))
+            return page.evaluate("window.__opened || ''"), page.inner_text("#m-status")
+        opened, status = self.run_page("/merchants", None, check)
+        self.assertTrue(opened.startswith("https://github.com/Sriharsan/clearwake-paypal/issues/new?template=merchant-interest.yml"), opened)
+        for part in ("name=Test%20Seller", "sell=notebooks", "cases=3", "quote=Yes"):
+            self.assertIn(part, opened)
+        self.assertNotIn("@", opened)
+        self.assertIn("GitHub issue form", status)
+
+    def test_no_email_address_is_published_on_the_site(self):
+        import glob
+        for path in glob.glob(str(ROOT / "site" / "**" / "*"), recursive=True):
+            if path.endswith((".html", ".js", ".json", ".css")):
+                text = open(path, encoding="utf-8", errors="replace").read()
+                self.assertNotIn("bssriharsan", text, path)
 
     def test_empty_form_asks_for_all_four_answers(self):
         def check(page):

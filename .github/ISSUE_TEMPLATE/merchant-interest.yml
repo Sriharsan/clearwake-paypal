@@ -1,0 +1,36 @@
+name: Merchant interest
+description: Tell us about your shop and the "item not received" cases you see. Everything here is public on GitHub.
+title: "Merchant interest: "
+labels: ["merchant-interest"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Four short questions. This issue is public. Do not put an email address, a phone number or any payment detail here.
+  - type: input
+    id: name
+    attributes:
+      label: Name (or shop name)
+    validations:
+      required: true
+  - type: input
+    id: sell
+    attributes:
+      label: What do you sell?
+    validations:
+      required: true
+  - type: input
+    id: cases
+    attributes:
+      label: How many "item not received" cases do you see a month?
+    validations:
+      required: true
+  - type: dropdown
+    id: quote
+    attributes:
+      label: May we quote you?
+      options:
+        - "No"
+        - "Yes"
+    validations:
+      required: true
